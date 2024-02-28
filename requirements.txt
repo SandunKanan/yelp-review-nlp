@@ -1,0 +1,6 @@
+geopy
+pandas
+numpy
+nltk
+streamlit
+
