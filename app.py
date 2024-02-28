@@ -32,14 +32,18 @@ with st.form(key='user_input_form'):
     submit_btn = st.form_submit_button('Get Results')
 
 # Read the data tables only once, not inside the conditional
-mother = pd.read_csv('notebooks/csv/df_top10.csv', index_col=0)
-mother.reset_index(drop=True, inplace=True)
+df_review = pd.read_csv('notebooks/csv/df_review_top10.csv', index_col=0)
+df_review.reset_index(drop=True, inplace=True)
+
+df_business = pd.read_csv('notebooks/csv/df_business_top10.csv', index_col=0)
+df_business.reset_index(drop=True, inplace=True)
 # mother['date'] = pd.to_datetime(mother['date'])
 
 # Display the result
 if submit_btn:
     # Filter data based on the restaurant name
-    filtered_data = mother[mother['name'].str.contains(name, case=False, na=False)]
+    df_review_filtered = df_review[df_review['name'].str.contains(name, case=False, na=False)]
+    df_business_filtered = df_business[df_business['name'].str.contains(name, case=False, na=False)]
     # Filter by the selected date range
     # filtered_data = filtered_data[
     #     (filtered_data['date'] >= pd.to_datetime(date_from)) & 
@@ -49,16 +53,16 @@ if submit_btn:
 
 
     ############ Average reviews
-    average_reviews = filtered_data['restaurant_avg_star'].mean()  # Average number of stars
-    review_count = filtered_data['review_count'].mean()   # Total number of reviews
-    avg_stars10m_radius = round(filtered_data['avg_stars10m_radius'].mean(), 2)   # Avg stars in 10 mile radius
+    average_reviews = df_review_filtered['restaurant_avg_star'].mean()  # Average number of stars
+    review_count = int(df_review_filtered['review_count'].mean())   # Total number of reviews
+    avg_stars10m_radius = round(df_review_filtered['avg_stars10m_radius'].mean(), 1)   # Avg stars in 10 mile radius
 
     ############ Display - Restaurant Information
     col1, col2 = st.columns(2)
     with col1:
         st.subheader("Restaurant Information")
         st.write(f"**Name:** {name}")
-        # st.write(f"**Category:** {filtered_data['categories'].iloc[0]}")
+        st.write(f"**Category:** {df_business_filtered['categories'].iloc[0]}")
         
     with col2:
         st.subheader("Review Summary")
@@ -127,9 +131,4 @@ if submit_btn:
     # Your code for displaying suggestions for improvement here
 
 
-
-# Function for generating word clouds (implement this according to your needs)
-def generate_word_cloud(data):
-    # Your word cloud generation logic here
-    pass
 
