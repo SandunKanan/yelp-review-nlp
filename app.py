@@ -34,7 +34,7 @@ with st.form(key='user_input_form'):
 # Read the data tables only once, not inside the conditional
 mother = pd.read_csv('notebooks/csv/df_top10.csv', index_col=0)
 mother.reset_index(drop=True, inplace=True)
-mother['date'] = pd.to_datetime(mother['date'])
+# mother['date'] = pd.to_datetime(mother['date'])
 
 # Display the result
 if submit_btn:
@@ -58,7 +58,7 @@ if submit_btn:
     with col1:
         st.subheader("Restaurant Information")
         st.write(f"**Name:** {name}")
-        st.write(f"**Category:** {filtered_data['categories'].iloc[0]}")
+        # st.write(f"**Category:** {filtered_data['categories'].iloc[0]}")
         
     with col2:
         st.subheader("Review Summary")
