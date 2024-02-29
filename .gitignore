@@ -1,3 +1,7 @@
 /yelp_dataset
 .DS_Store
 /notebooks
+
+# Sophia's raw_data, notebooks, csv
+/raw_data
+/csv
