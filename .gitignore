@@ -2,5 +2,6 @@
 .DS_Store
 /notebooks
 
-# Sophia's dataset
+# Sophia's raw_data, notebooks, csv
 /raw_data
+/csv
