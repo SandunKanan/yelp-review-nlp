@@ -1,7 +1,16 @@
 /yelp_dataset
 .DS_Store
-/notebooks
-/raw_data
-.ipynb_checkpoints/
-.python-version
 .env
+
+# Sophia's raw_data, notebooks, csv
+/raw_data
+/csv
+notebooks/csv
+
+*.pyc
+*.swp
+/*egg-info/
+*/__pycache__/*
+*.cache/
+*/.pytest_cache/*
+*/.ipynb_checkpoints/*
