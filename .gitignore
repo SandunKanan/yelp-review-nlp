@@ -13,4 +13,4 @@ notebooks/csv
 */__pycache__/*
 *.cache/
 */.pytest_cache/*
-*/.ipynb_checkpoints/*
+*.ipynb_checkpoints
