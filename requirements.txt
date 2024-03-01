@@ -1,0 +1,7 @@
+geopy
+pandas
+numpy
+nltk
+streamlit
+openai
+pillow=9.5

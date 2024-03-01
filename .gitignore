@@ -1,9 +1,11 @@
 /yelp_dataset
 .DS_Store
+.env
 
 # Sophia's raw_data, notebooks, csv
 /raw_data
 /csv
+notebooks/csv
 
 *.pyc
 *.swp
@@ -11,4 +13,4 @@
 */__pycache__/*
 *.cache/
 */.pytest_cache/*
-*/.ipynb_checkpoints/*
+*.ipynb_checkpoints
