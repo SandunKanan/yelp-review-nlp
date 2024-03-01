@@ -3,4 +3,4 @@ pandas
 numpy
 nltk
 streamlit
-
+openai
