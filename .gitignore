@@ -4,3 +4,4 @@
 /raw_data
 .ipynb_checkpoints/
 .python-version
+.env
