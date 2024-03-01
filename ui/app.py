@@ -44,11 +44,11 @@ with st.form(key='user_input_form'):
     submit_btn = st.form_submit_button('Get Results')
 
 # Read the data tables only once, not inside the conditional
-df_review = pd.read_csv('notebooks/csv/df_review_top10.csv')
-df_business = pd.read_csv('notebooks/csv/df_business_top10.csv')
-df_praise = pd.read_csv('notebooks/csv/df_praise_top10.csv')
-df_complaint = pd.read_csv('notebooks/csv/df_complaint_top10.csv')
-df_wordcloud = pd.read_csv('notebooks/csv/df_wordcloud_top10.csv')
+df_review = pd.read_csv('./notebooks/csv/df_review_top10.csv')
+df_business = pd.read_csv('./notebooks/csv/df_business_top10.csv')
+df_praise = pd.read_csv('./notebooks/csv/df_praise_top10.csv')
+df_complaint = pd.read_csv('./notebooks/csv/df_complaint_top10.csv')
+df_wordcloud = pd.read_csv('./notebooks/csv/df_wordcloud_top10.csv')
 
 
 # Display the result
@@ -184,24 +184,24 @@ if submit_btn:
     ########## Display - Suggestions for Improvement
     ####################################################################################################
     ####################################################################################################
-    st.subheader("Suggestions for Improvement")
+    # st.subheader("Suggestions for Improvement")
 
-    #####################################################
+    # #####################################################
 
-    openai.api_key = os.getenv('OPENAI_API_KEY_2')
-    # openai.api_key = 'sk-***************'
+    # openai.api_key = os.getenv('OPENAI_API_KEY_2')
+    # # openai.api_key = 'sk-***************'
 
-    # Create a prompt based on the top complaints for the restaurant
-    prompt = f"The following are the top customer complaints for {name}: {complaint_texts}. Can you suggest improvements for the restaurant within 100 words?"
+    # # Create a prompt based on the top complaints for the restaurant
+    # prompt = f"The following are the top customer complaints for {name}: {complaint_texts}. Can you suggest improvements for the restaurant within 100 words?"
 
-    # Make a request to the API to generate text
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # Use the engine of your choice
-        messages = [{"role": "user", "content": prompt}],
-        max_tokens = 200
-    )
+    # # Make a request to the API to generate text
+    # response = openai.ChatCompletion.create(
+    #     model="gpt-3.5-turbo",  # Use the engine of your choice
+    #     messages = [{"role": "user", "content": prompt}],
+    #     max_tokens = 200
+    # )
 
-    st.write(response["choices"][0]["message"]["content"])
+    # st.write(response["choices"][0]["message"]["content"])
     #####################################################
 
     st.write("""
