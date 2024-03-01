@@ -7,6 +7,7 @@ import os
 from dotenv import load_dotenv
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+import ast
 
 # Load the .env file
 load_dotenv()
@@ -47,6 +48,7 @@ df_review = pd.read_csv('notebooks/csv/df_review_top10.csv')
 df_business = pd.read_csv('notebooks/csv/df_business_top10.csv')
 df_praise = pd.read_csv('notebooks/csv/df_praise_top10.csv')
 df_complaint = pd.read_csv('notebooks/csv/df_complaint_top10.csv')
+df_wordcloud = pd.read_csv('notebooks/csv/df_wordcloud_top10.csv')
 
 
 # Display the result
@@ -56,6 +58,7 @@ if submit_btn:
     df_business_filtered = df_business[df_business['name'].str.contains(name, case=False, na=False)]
     df_praise_filtered = df_praise[df_praise['name'].str.contains(name, case=False, na=False)]
     df_complaint_filtered = df_complaint[df_complaint['name'].str.contains(name, case=False, na=False)]
+    df_wordcloud_filtered = df_wordcloud[df_wordcloud['name'].str.contains(name, case=False, na=False)]
     # Filter by the selected date range
     # df_review_filtered = df_review_filtered[
     #     (df_review_filtered['date'] >= pd.to_datetime(date_from)) & 
@@ -65,8 +68,8 @@ if submit_btn:
     ############ Average reviews
     ####################################################################################################
     ####################################################################################################
-    average_reviews = df_review_filtered['restaurant_avg_star'].mean()  # Average number of stars
-    review_count = int(df_review_filtered['review_count'].mean())   # Total number of reviews
+    average_reviews = round(df_review_filtered['stars'].mean(), 1)  # Average number of stars
+    review_count = len(df_review_filtered)   # Total number of reviews
     avg_stars10m_radius = round(df_review_filtered['avg_stars10m_radius'].mean(), 1)   # Avg stars in 10 mile radius
 
     ############ Display - Restaurant Information
@@ -127,8 +130,6 @@ if submit_btn:
     
     st.text(" ")  # add space
     st.text(" ")  # add space
-
-
     st.text(" ")  # add space
 
 
@@ -140,78 +141,39 @@ if submit_btn:
     col5, col6 = st.columns(2)
     with col5:
         st.subheader("WordCloud of the restaurant")
+
+
+
+
         # st.image('notebooks/img/mothers_1.jpg', caption='Visual Representation of Common Review Comments')
 
         st.set_option('deprecation.showPyplotGlobalUse', False)
 
-        # Create some sample text
-        
-        text = 'Fun, fun, awesome, awesome, tubular, astounding, superb, great, amazing, amazing, amazing, amazing'
+        #select the WordCloud Dictionary
+        wc_own_dict = df_wordcloud_filtered["own_wc_dict"].iloc[0]
+        wc_own_dict = ast.literal_eval(wc_own_dict)
 
-        # Create and generate a word cloud image:
-        wordcloud = WordCloud().generate(text)
-
-        # Display the generated image:
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
-
-    # def remove_meaningless_words(list_of_tuples) -> tuple[str, float]:
-    #     # Define the set of meaningless words to be removed
-    #     meaningless_words = {
-    #         'new orleans', 'food came', 'back next', 'right next', 
-    #         'tasted like', 'gave us', 'next door', 'even though',
-    #         'time new', 'decided try', 'canal street', 'make sure',
-    #         'time new orleans', 'new orleans food', 'made us', 'place eat', 
-    #         'took minutes', 'across street', 'go wrong', 'wait staff', 
-    #         'food always', 'place go', 'minute wait', 'wait go', 'told us', 
-    #         'neighborhood restaurant'
-    #     }
-    
-    #     # Filter the list to exclude meaningless words
-    #     return [(word, score) for word, score in sorted_tfidf_list if word not in meaningless_words] 
-
-    # def wordcloud_of_res(name:str) -> WordCloud:
-    #     new_orleans_restaurants = df_business_filtered[df_business_filtered['categories'].str.contains('restaurant', case=False, na=False)]
-    #     user_restaurant = new_orleans_restaurants[new_orleans_restaurants['name'] == name]
-    #     user_restaurant_reviews = pd.merge(df_review_filtered, user_restaurant, on='business_id')
-    #     user_restaurant_reviews['clean_text'] = user_restaurant_reviews['text'].apply(clean)
-    #     vectors = pd.DataFrame(vectorizer.transform(user_restaurant_reviews.clean_text).toarray(),
-    #                     columns = vectorizer.get_feature_names_out())
-    #     sum_tfidf = vectors.sum(axis=0).sort_values(ascending=False)
-    #     tfidf_list = [(word, sum_tfidf[word]) for word, idx in vectorizer.vocabulary_.items()]
-    #     sorted_tfidf_list =sorted(tfidf_list, key = lambda x: x[1], reverse=True)
-    #     tfidf_list_clean = remove_meaningless_words(sorted_tfidf_list)
-    #     word_scores = dict(tfidf_list_clean) 
-    #     wordcloud = WordCloud(width=800, 
-    #                         height=400, 
-    #                         colormap = 'BuPu_r',
-    #                         background_color='white').generate_from_frequencies(word_scores)
-    #     plt.figure(figsize=(10, 6))
-    #     plt.imshow(wordcloud, interpolation='bilinear')
-    #     plt.axis("off");
-    #     st.pyplot()
-    
-    # wordcloud_of_res(name)
+        #Display WordCloud
+        wc_own = WordCloud(width=800, 
+                      height=400,
+                      colormap = 'BuPu_r',
+                      background_color='white').fit_words(wc_own_dict)
+        st.image(wc_own.to_array())
 
 
     with col6:
         st.subheader("WordCloud of other restaurants in same category")
-        # st.image('notebooks/img/mothers_2.jpg', caption='Visual Representation of Common Review Comments from other restaurants in same category')
-        st.set_option('deprecation.showPyplotGlobalUse', False)
 
-        # Create some sample text
-        text = 'Fun, fun, awesome, awesome, tubular, astounding, superb, great, amazing, amazing, amazing, amazing'
+        #select the WordCloud Dictionary
+        wc_other_dict = df_wordcloud_filtered["other_wc_dict"].iloc[0]
+        wc_other_dict = ast.literal_eval(wc_other_dict)
 
-        # Create and generate a word cloud image:
-        wordcloud = WordCloud().generate(text)
-
-        # Display the generated image:
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
-        st.pyplot()
+        #Display WordCloud
+        wc_other = WordCloud(width=800, 
+                      height=400,
+                      colormap = 'BuPu_r',
+                      background_color='white').fit_words(wc_other_dict)
+        st.image(wc_other.to_array())
 
     st.text(" ")  # add space
     st.text(" ")  # add space
@@ -224,25 +186,24 @@ if submit_btn:
     ####################################################################################################
     st.subheader("Suggestions for Improvement")
 
-    # #####################################################
-    # # Function to call the OpenAI API
+    #####################################################
 
-    # openai.api_key = os.getenv('OPENAI_API_KEY')
+    openai.api_key = os.getenv('OPENAI_API_KEY_2')
+    # openai.api_key = 'sk-***************'
 
-    # # Create a prompt based on the top complaints for the restaurant
-    # prompt = f"The following are the top customer complaints for {name}: {complaint_texts}. Can you suggest improvements for the restaurant within 100 words?"
+    # Create a prompt based on the top complaints for the restaurant
+    prompt = f"The following are the top customer complaints for {name}: {complaint_texts}. Can you suggest improvements for the restaurant within 100 words?"
 
-    # # Make a request to the API to generate text
-    # response = openai.ChatCompletion.create(
-    #     model="gpt-3.5-turbo",  # Use the engine of your choice
-    #     messages = [{"role": "user", "content": prompt}],
-    #     max_tokens = 200
-    # )
+    # Make a request to the API to generate text
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # Use the engine of your choice
+        messages = [{"role": "user", "content": prompt}],
+        max_tokens = 200
+    )
 
-    # st.write(response["choices"][0]["message"]["content"])
-    # #####################################################
+    st.write(response["choices"][0]["message"]["content"])
+    #####################################################
 
-    # Dummy Text to save the cost from ChatGPT-API
     st.write("""
     Based on the feedback gathered from customer reviews, we propose the following areas for improvement:
 
