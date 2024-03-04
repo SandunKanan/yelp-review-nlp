@@ -2,6 +2,7 @@ geopy
 pandas
 numpy
 nltk
+dotenv
 scikit-learn
 streamlit
 openai
