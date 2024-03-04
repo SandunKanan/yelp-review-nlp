@@ -1,0 +1,51 @@
+complaint_text,complaint_score,business_id,name
+poor,0.5193099821774547,GBTPC53ZrG1ZBY3DT8Mbcw,Luke
+customers,0.377411142237707,GBTPC53ZrG1ZBY3DT8Mbcw,Luke
+terrible,0.2956425949319596,GBTPC53ZrG1ZBY3DT8Mbcw,Luke
+second,0.2183732139435152,GBTPC53ZrG1ZBY3DT8Mbcw,Luke
+open,0.2018724410914122,GBTPC53ZrG1ZBY3DT8Mbcw,Luke
+mushy,0.8329428420792735,qb28j-FNX1_6xm7u372TZA,Gumbo Shop
+frozen,0.6853839092734588,qb28j-FNX1_6xm7u372TZA,Gumbo Shop
+waste,0.6717675309464755,qb28j-FNX1_6xm7u372TZA,Gumbo Shop
+awful,0.5395490891029037,qb28j-FNX1_6xm7u372TZA,Gumbo Shop
+trap,0.4631472028216262,qb28j-FNX1_6xm7u372TZA,Gumbo Shop
+shorts,0.3392222214986174,_C7QiQQc47AOEv4PE3Kong,Commander's Palace
+wearing,0.2359575895105743,_C7QiQQc47AOEv4PE3Kong,Commander's Palace
+rude,0.1483400197520988,_C7QiQQc47AOEv4PE3Kong,Commander's Palace
+terrible,0.1474030634958456,_C7QiQQc47AOEv4PE3Kong,Commander's Palace
+dressed,0.1425613906300276,_C7QiQQc47AOEv4PE3Kong,Commander's Palace
+disgusting,0.8774355452366633,VQcCL9PiNL_wkGf-uF3fjg,Royal House
+burnt,0.8086855955247705,VQcCL9PiNL_wkGf-uF3fjg,Royal House
+worst service,0.8011455012614276,VQcCL9PiNL_wkGf-uF3fjg,Royal House
+time money,0.7916623937368611,VQcCL9PiNL_wkGf-uF3fjg,Royal House
+service horrible,0.774143907739363,VQcCL9PiNL_wkGf-uF3fjg,Royal House
+disgusting,0.7677547239628705,VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar
+awful,0.5721630935486154,VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar
+bill,0.5218011682741391,VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar
+dirty,0.4473573287930463,VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar
+empty,0.4299433847062533,VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar
+terrible,0.3455393210331588,6a4gLLFSgr-Q6CZXDLzBGQ,Cochon
+worst,0.3311484599845918,6a4gLLFSgr-Q6CZXDLzBGQ,Cochon
+hostess,0.2339317629642155,6a4gLLFSgr-Q6CZXDLzBGQ,Cochon
+salty,0.2141555790184101,6a4gLLFSgr-Q6CZXDLzBGQ,Cochon
+rude,0.1954580205119326,6a4gLLFSgr-Q6CZXDLzBGQ,Cochon
+place dirty,1.236985494623587,iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant
+rude service,1.165141942972462,iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant
+filthy,1.1140937699255944,iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant
+disgusting,0.901551216225104,iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant
+worse,0.8691946889947308,iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant
+poisoning,0.626105909248346,ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill
+disgusting,0.3863054044392801,ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill
+food poisoning,0.3556896651055083,ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill
+sick,0.3325933497417247,ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill
+nightmares,0.3114798240734488,ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill
+waste,0.1694170912744156,_ab50qdWOk0DdB6XOrBitw,Acme Oyster House
+poor,0.15580487939268,_ab50qdWOk0DdB6XOrBitw,Acme Oyster House
+manager,0.1406156836611408,_ab50qdWOk0DdB6XOrBitw,Acme Oyster House
+horrible,0.131847926671078,_ab50qdWOk0DdB6XOrBitw,Acme Oyster House
+business,0.1272531146776949,_ab50qdWOk0DdB6XOrBitw,Acme Oyster House
+terrible,0.3686704544215454,oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans
+horrible,0.3655654262449284,oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans
+worst,0.3098022841671194,oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans
+rude,0.2676505089604153,oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans
+manager,0.2478139898369078,oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans

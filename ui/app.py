@@ -6,6 +6,7 @@ import streamlit as st
 # import os
 from wordcloud import WordCloud
 # import matplotlib.pyplot as plt
+import openai
 import ast
 
 
@@ -14,7 +15,7 @@ st.set_page_config(layout="wide")
 ################## Display - Tilte ###################
 ####################################################################################################
 ####################################################################################################
-st.title("NSPalete")
+st.title("NSPalette")
 st.text(" ")  # add space
 
 ############# Display - User Input ###################
@@ -41,12 +42,12 @@ with st.form(key='user_input_form'):
     submit_btn = st.form_submit_button('Get Results')
 
 # Read the data tables only once, not inside the conditional
-df_review = pd.read_csv('./notebooks/csv/df_review_top10.csv')
-df_business = pd.read_csv('./notebooks/csv/df_business_top10.csv')
-df_praise = pd.read_csv('./notebooks/csv/df_praise_top10.csv')
-df_complaint = pd.read_csv('./notebooks/csv/df_complaint_top10.csv')
-df_wordcloud = pd.read_csv('./notebooks/csv/df_wordcloud_top10.csv')
-
+df_review = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_review_top10.csv')
+df_business = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_business_top10.csv')
+df_praise = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_praise_top10.csv')
+df_complaint = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_complaint_top10.csv')
+df_wordcloud = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_wordcloud_top10.csv')
+df_example = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_examples_top10.csv')
 
 # Display the result
 if submit_btn:
@@ -56,6 +57,7 @@ if submit_btn:
     df_praise_filtered = df_praise[df_praise['name'].str.contains(name, case=False, na=False)]
     df_complaint_filtered = df_complaint[df_complaint['name'].str.contains(name, case=False, na=False)]
     df_wordcloud_filtered = df_wordcloud[df_wordcloud['name'].str.contains(name, case=False, na=False)]
+    df_example_filtered = df_example[df_example['name'].str.contains(name, case=False, na=False)]
     # Filter by the selected date range
     # df_review_filtered = df_review_filtered[
     #     (df_review_filtered['date'] >= pd.to_datetime(date_from)) &
@@ -92,14 +94,21 @@ if submit_btn:
     ####################################################################################################
     # Filter and sort for top 5 praises
 
-    col3, col4, col5 = st.columns([2, 2, 4])
+    col3, col4 = st.columns(2)
     with col3:
         st.subheader("Top 5 Praises")
         top_praises = df_praise_filtered.nlargest(5, 'praise_score')
         praise_texts = top_praises['praise_text'].tolist()
         for praise in praise_texts:
             st.write(praise)
-        # st.write(top_praises[['praise_text']])
+        st.text(" ")  # add space
+        st.subheader("Complaint Examples")
+        complaint_example_texts = df_example_filtered['complaint_sample_reviews'].tolist()
+        for complaint_example in complaint_example_texts:
+            st.write(complaint_example)
+            st.text(" ")  # add space
+            st.text(" ")  # add space
+            st.text(" ")  # add space
     ####################################################################################################
     ####################################################################################################
     with col4:
@@ -108,22 +117,33 @@ if submit_btn:
         complaint_texts = top_complaints['complaint_text'].tolist()
         for complaint in complaint_texts:
             st.write(complaint)
+        st.text(" ")  # add space
+        st.subheader("Praise Examples")
+        praise_example_texts = df_example_filtered['praise_sample_reviews'].tolist()
+        for praise_example in praise_example_texts:
+            st.write(praise_example)
+            st.text(" ")  # add space
+            st.text(" ")  # add space
+            st.text(" ")  # add space
     ####################################################################################################
     ####################################################################################################
-    with col5:
-        st.subheader("Complaint Examples")
 
-        # Dummy text for complaint examples
-        complaint_examples = """
-        1. "Waited for over an hour before our order was taken. Extremely disappointing service."
-        2. "The food was undercooked and lacked flavor. Not what I expected at all."
-        3. "Our table was ignored despite the restaurant not being busy. Will not be returning."
-        4. "Found a hair in my food. The staff apologized, but it ruined our dining experience."
-        5. "Overpriced for the quality of food served. There are better options available nearby."
-        """
-        st.text(complaint_examples)
+        
+    #     complaint_example_texts = df_example_filtered['complaint_sample_reviews'].tolist()
+    #     for complaint_example in complaint_example_texts:
+    #         st.write(complaint_example)
+    #         st.markdown("---")
+    #     # Dummy text for complaint examples
+    #     # complaint_examples = """
+    #     # 1. "Waited for over an hour before our order was taken. Extremely disappointing service."
+    #     # 2. "The food was undercooked and lacked flavor. Not what I expected at all."
+    #     # 3. "Our table was ignored despite the restaurant not being busy. Will not be returning."
+    #     # 4. "Found a hair in my food. The staff apologized, but it ruined our dining experience."
+    #     # 5. "Overpriced for the quality of food served. There are better options available nearby."
+    #     # """
+    #     # st.text(complaint_examples)
 
-    # Display the dummy text
+    # # Display the dummy text
 
     st.text(" ")  # add space
     st.text(" ")  # add space
@@ -139,9 +159,6 @@ if submit_btn:
     with col5:
         st.subheader("WordCloud of the restaurant")
 
-
-
-
         # st.image('notebooks/img/mothers_1.jpg', caption='Visual Representation of Common Review Comments')
 
         st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -153,7 +170,6 @@ if submit_btn:
         #Display WordCloud
         wc_own = WordCloud(width=800,
                       height=400,
-                      colormap = 'BuPu_r',
                       background_color='white').fit_words(wc_own_dict)
         st.image(wc_own.to_array())
 
@@ -181,36 +197,35 @@ if submit_btn:
     ########## Display - Suggestions for Improvement
     ####################################################################################################
     ####################################################################################################
-    # st.subheader("Suggestions for Improvement")
+    st.subheader("Suggestions for Improvement")
 
     # #####################################################
 
-    # openai.api_key = os.getenv('OPENAI_API_KEY_2')
-    # # openai.api_key = 'sk-***************'
+    openai.api_key = st.secrets['OPENAI_API_KEY']
 
-    # # Create a prompt based on the top complaints for the restaurant
-    # prompt = f"The following are the top customer complaints for {name}: {complaint_texts}. Can you suggest improvements for the restaurant within 100 words?"
+    # Create a prompt based on the top complaints for the restaurant
+    prompt = f"The following are the top customer complaints for {name}: {complaint_texts}. Can you suggest improvements for the restaurant within 100 words?"
 
-    # # Make a request to the API to generate text
-    # response = openai.ChatCompletion.create(
-    #     model="gpt-3.5-turbo",  # Use the engine of your choice
-    #     messages = [{"role": "user", "content": prompt}],
-    #     max_tokens = 200
-    # )
+    # Make a request to the API to generate text
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # Use the engine of your choice
+        messages = [{"role": "user", "content": prompt}],
+        max_tokens = 100
+    )
 
-    # st.write(response["choices"][0]["message"]["content"])
+    st.write(response["choices"][0]["message"]["content"])
     #####################################################
 
-    st.write("""
-    Based on the feedback gathered from customer reviews, we propose the following areas for improvement:
+    # st.write("""
+    # Based on the feedback gathered from customer reviews, we propose the following areas for improvement:
 
-    1. **Speed of Service**: Implementing a new table management system could reduce wait times and improve the flow of service.
-    2. **Staff Training**: Enhancing staff training programs can lead to better customer service and a more knowledgeable team.
-    3. **Menu Diversity**: Expanding the menu to include a wider variety of options may satisfy a larger customer base and cater to dietary restrictions.
-    4. **Quality Control**: Regular checks on food quality and preparation can ensure consistency and address issues related to undercooked or overpriced dishes.
-    5. **Ambiance Enhancements**: Small changes to lighting, music, and seating arrangements can significantly improve the overall dining experience.
+    # 1. **Speed of Service**: Implementing a new table management system could reduce wait times and improve the flow of service.
+    # 2. **Staff Training**: Enhancing staff training programs can lead to better customer service and a more knowledgeable team.
+    # 3. **Menu Diversity**: Expanding the menu to include a wider variety of options may satisfy a larger customer base and cater to dietary restrictions.
+    # 4. **Quality Control**: Regular checks on food quality and preparation can ensure consistency and address issues related to undercooked or overpriced dishes.
+    # 5. **Ambiance Enhancements**: Small changes to lighting, music, and seating arrangements can significantly improve the overall dining experience.
 
-    By focusing on these key areas, the restaurant can address the most pressing concerns of its patrons, potentially leading to higher satisfaction and repeat business.
-    """)
+    # By focusing on these key areas, the restaurant can address the most pressing concerns of its patrons, potentially leading to higher satisfaction and repeat business.
+    # """)
     ####################################################################################################
     ####################################################################################################
