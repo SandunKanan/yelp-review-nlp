@@ -2,7 +2,7 @@
 .DS_Store
 .env
 .streamlit
-.data
+/data
 
 # Sophia's raw_data, notebooks, csv
 /raw_data
