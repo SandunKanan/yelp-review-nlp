@@ -4,5 +4,5 @@ numpy
 nltk
 scikit-learn
 streamlit
-openai
+openai==0.28.0
 wordcloud
