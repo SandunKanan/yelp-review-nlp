@@ -4,13 +4,10 @@ import string
 from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
 import os
-from dotenv import load_dotenv
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import ast
 
-# Load the .env file
-load_dotenv()
 
 # Set page config
 st.set_page_config(layout="wide")
@@ -61,7 +58,7 @@ if submit_btn:
     df_wordcloud_filtered = df_wordcloud[df_wordcloud['name'].str.contains(name, case=False, na=False)]
     # Filter by the selected date range
     # df_review_filtered = df_review_filtered[
-    #     (df_review_filtered['date'] >= pd.to_datetime(date_from)) & 
+    #     (df_review_filtered['date'] >= pd.to_datetime(date_from)) &
     #     (df_review_filtered['date'] <= pd.to_datetime(date_to))
     # ]
 
@@ -82,7 +79,7 @@ if submit_btn:
         st.subheader("Restaurant Information")
         st.write(f"**Name:** {name}")
         st.write(f"**Category:** {df_business_filtered['categories'].iloc[0]}")
-        
+
     with col2:
         st.subheader("Review Summary")
         st.metric(label="Average Review Scores", value=average_reviews)
@@ -90,11 +87,11 @@ if submit_btn:
         st.metric(label="Average Review Score of Other Restaurants Within a 10 Miles", value=avg_stars10m_radius)
     st.text(" ")  # add space
     st.text(" ")  # add space
-    ########## Display - Top 5 Compliments / Complaints 
+    ########## Display - Top 5 Compliments / Complaints
     ####################################################################################################
     ####################################################################################################
     # Filter and sort for top 5 praises
-    
+
     col3, col4, col5 = st.columns([2, 2, 4])
     with col3:
         st.subheader("Top 5 Praises")
@@ -127,7 +124,7 @@ if submit_btn:
         st.text(complaint_examples)
 
     # Display the dummy text
-    
+
     st.text(" ")  # add space
     st.text(" ")  # add space
     st.text(" ")  # add space
@@ -154,7 +151,7 @@ if submit_btn:
         wc_own_dict = ast.literal_eval(wc_own_dict)
 
         #Display WordCloud
-        wc_own = WordCloud(width=800, 
+        wc_own = WordCloud(width=800,
                       height=400,
                       colormap = 'BuPu_r',
                       background_color='white').fit_words(wc_own_dict)
@@ -169,7 +166,7 @@ if submit_btn:
         wc_other_dict = ast.literal_eval(wc_other_dict)
 
         #Display WordCloud
-        wc_other = WordCloud(width=800, 
+        wc_other = WordCloud(width=800,
                       height=400,
                       colormap = 'BuPu_r',
                       background_color='white').fit_words(wc_other_dict)
