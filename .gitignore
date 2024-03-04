@@ -6,6 +6,7 @@
 /raw_data
 /csv
 notebooks/csv
+.streamlit
 
 *.pyc
 *.swp

@@ -166,7 +166,7 @@ if submit_btn:
 
         #select the WordCloud Dictionary
         wc_other_dict = df_wordcloud_filtered["other_wc_dict"].iloc[0]
-        wc_other_dict = ast.literal_eval(wc_other_dict)
+        # wc_other_dict = ast.literal_eval(wc_other_dict)
 
         #Display WordCloud
         wc_other = WordCloud(width=800, 
@@ -184,26 +184,24 @@ if submit_btn:
     ########## Display - Suggestions for Improvement
     ####################################################################################################
     ####################################################################################################
-    # st.subheader("Suggestions for Improvement")
+    st.subheader("Suggestions for Improvement")
 
     # #####################################################
 
-    # openai.api_key = os.getenv('OPENAI_API_KEY_2')
-    # # openai.api_key = 'sk-***************'
-
+    # openai.api_key = st.secrets["OPENAI_API_KEY"]
+    
     # # Create a prompt based on the top complaints for the restaurant
-    # prompt = f"The following are the top customer complaints for {name}: {complaint_texts}. Can you suggest improvements for the restaurant within 100 words?"
+    # prompt = f"The following are the top customer complaints for {name}: {complaint_texts}. The following are the top customer praises for {name}: {praise_texts}. Suggest improvements for the restaurant within 100 words with bullet points? Your suggestion will be displayed on the website and the owner will know the improvement ideas."
 
     # # Make a request to the API to generate text
     # response = openai.ChatCompletion.create(
-    #     model="gpt-3.5-turbo",  # Use the engine of your choice
+    #     model="gpt-4-0125-preview",  # Use the engine of your choice  | gpt-3.5-turbo | gpt-4-0125-preview
     #     messages = [{"role": "user", "content": prompt}],
-    #     max_tokens = 200
+    #     max_tokens = 300
     # )
 
     # st.write(response["choices"][0]["message"]["content"])
     #####################################################
-
     st.write("""
     Based on the feedback gathered from customer reviews, we propose the following areas for improvement:
 
