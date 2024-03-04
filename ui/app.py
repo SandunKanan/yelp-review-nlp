@@ -1,11 +1,11 @@
-import openai
+# import openai
 import pandas as pd
-import string
+# import string
 from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
-import os
+# import os
 from wordcloud import WordCloud
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import ast
 
 
