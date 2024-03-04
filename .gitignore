@@ -7,6 +7,9 @@
 /csv
 notebooks/csv
 
+# Sandun's notebooks
+/sandun_notebooks
+
 *.pyc
 *.swp
 /*egg-info/
