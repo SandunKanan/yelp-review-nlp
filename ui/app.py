@@ -8,6 +8,7 @@ from wordcloud import WordCloud
 # import matplotlib.pyplot as plt
 import openai
 import ast
+import matplotlib.pyplot as plt
 
 
 # Set page config
@@ -15,15 +16,20 @@ st.set_page_config(layout="wide")
 ################## Display - Tilte ###################
 ####################################################################################################
 ####################################################################################################
-st.title("NSPalette")
-st.text(" ")  # add space
+
 
 ############# Display - User Input ###################
 ####################################################################################################
 ####################################################################################################
+
+# Set up the layout for the header
+st.title("NLPalette")
+st.caption("Select a restaurant to analyze reviews and gain insights.")
+
+# Set up the form
 with st.form(key='user_input_form'):
-    # Use st.columns to organize the inputs into three columns within the form
-    col1, col2, col3 = st.columns(3)
+    # Organize the inputs and button in two columns
+    col1, col2 = st.columns([3, 1])  # Adjust the ratio based on your preference
 
     with col1:
         name = st.selectbox("Restaurant Name", [
@@ -33,13 +39,14 @@ with st.form(key='user_input_form'):
         ])
 
     with col2:
-        date_from = st.date_input("Date From")
+        st.text(" ")
+        st.text(" ")
+        submit_btn = st.form_submit_button('Get Results')
 
-    with col3:
-        date_to = st.date_input("Date To")
+# Add space below the form
+st.text(" ")
 
-    # Place the submit button inside the form context but outside the columns
-    submit_btn = st.form_submit_button('Get Results')
+    
 
 # Read the data tables only once, not inside the conditional
 df_review = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_review_top10.csv')
@@ -58,11 +65,6 @@ if submit_btn:
     df_complaint_filtered = df_complaint[df_complaint['name'].str.contains(name, case=False, na=False)]
     df_wordcloud_filtered = df_wordcloud[df_wordcloud['name'].str.contains(name, case=False, na=False)]
     df_example_filtered = df_example[df_example['name'].str.contains(name, case=False, na=False)]
-    # Filter by the selected date range
-    # df_review_filtered = df_review_filtered[
-    #     (df_review_filtered['date'] >= pd.to_datetime(date_from)) &
-    #     (df_review_filtered['date'] <= pd.to_datetime(date_to))
-    # ]
 
     ############ Average reviews
     ####################################################################################################
@@ -98,52 +100,62 @@ if submit_btn:
     with col3:
         st.subheader("Top 5 Praises")
         top_praises = df_praise_filtered.nlargest(5, 'praise_score')
-        praise_texts = top_praises['praise_text'].tolist()
-        for praise in praise_texts:
-            st.write(praise)
-        st.text(" ")  # add space
-        st.subheader("Complaint Examples")
-        complaint_example_texts = df_example_filtered['complaint_sample_reviews'].tolist()
-        for complaint_example in complaint_example_texts:
-            st.write(complaint_example)
-            st.text(" ")  # add space
-            st.text(" ")  # add space
-            st.text(" ")  # add space
-    ####################################################################################################
-    ####################################################################################################
-    with col4:
-        st.subheader("Top 5 Complaints")
-        top_complaints = df_complaint_filtered.nsmallest(5, 'complaint_score')
-        complaint_texts = top_complaints['complaint_text'].tolist()
-        for complaint in complaint_texts:
-            st.write(complaint)
+        top_praises = top_praises.sort_values('praise_score', ascending=True)
+        fig, ax = plt.subplots()
+        ax.barh(top_praises['praise_text'], top_praises['praise_score'])
+        plt.xlabel('Praise Score')
+        st.pyplot(fig)
+
+       # Praise Example
         st.text(" ")  # add space
         st.subheader("Praise Examples")
         praise_example_texts = df_example_filtered['praise_sample_reviews'].tolist()
-        for praise_example in praise_example_texts:
-            st.write(praise_example)
-            st.text(" ")  # add space
-            st.text(" ")  # add space
-            st.text(" ")  # add space
-    ####################################################################################################
-    ####################################################################################################
 
+        for index, row in df_example_filtered.iterrows():
+            # Use the 'praise_text' as the expander label
+            with st.expander(row['praise_words']):
+                # Here you can show detailed examples related to the 'praise_text'
+                # For now, let's show the 'praise_text' itself as an example
+                st.write(row['praise_sample_reviews'])
+                # If you have detailed examples, you can filter them from 'df_example_filtered' based on 'praise_text'
+                # detailed_examples = df_example_filtered[df_example_filtered['some_column'] == row['praise_text']]
+                # for example in detailed_examples:
+                #     st.write(example['praise_sample_reviews'])
+
+
+    ####################################################################################################
+    with col4:
+        st.subheader("Top 5 Complaints")
+        top_complaints = df_complaint_filtered.nlargest(5, 'complaint_score')
+        top_complaints = top_complaints.sort_values('complaint_score', ascending=False)
+        fig, ax = plt.subplots()
+        ax.barh(top_complaints['complaint_text'], top_complaints['complaint_score'])
+        plt.xlabel('Complaint Score')
+        st.pyplot(fig)
+
+        st.subheader("Complaint Examples")
+        # Complaint Examples
+        # complaint_example_texts = df_example_filtered['complaint_sample_reviews'].tolist()
+        # for complaint_example in complaint_example_texts:
+        #     st.write(complaint_example)
+        #     st.text(" ")  # add space
+        #     st.text(" ")  # add space
+        #     st.text(" ")  # add space
+        for index, row in df_example_filtered.iterrows():
+            # Use the 'praise_text' as the expander label
+            with st.expander(row['complaint_words']):
+                # Here you can show detailed examples related to the 'praise_text'
+                # For now, let's show the 'praise_text' itself as an example
+                st.write(row['complaint_sample_reviews'])
+                # If you have detailed examples, you can filter them from 'df_example_filtered' based on 'praise_text'
+                # detailed_examples = df_example_filtered[df_example_filtered['some_column'] == row['praise_text']]
+                # for example in detailed_examples:
+                #     st.write(example['praise_sample_reviews'])
+
+
+    ####################################################################################################
+    ####################################################################################################
         
-    #     complaint_example_texts = df_example_filtered['complaint_sample_reviews'].tolist()
-    #     for complaint_example in complaint_example_texts:
-    #         st.write(complaint_example)
-    #         st.markdown("---")
-    #     # Dummy text for complaint examples
-    #     # complaint_examples = """
-    #     # 1. "Waited for over an hour before our order was taken. Extremely disappointing service."
-    #     # 2. "The food was undercooked and lacked flavor. Not what I expected at all."
-    #     # 3. "Our table was ignored despite the restaurant not being busy. Will not be returning."
-    #     # 4. "Found a hair in my food. The staff apologized, but it ruined our dining experience."
-    #     # 5. "Overpriced for the quality of food served. There are better options available nearby."
-    #     # """
-    #     # st.text(complaint_examples)
-
-    # # Display the dummy text
 
     st.text(" ")  # add space
     st.text(" ")  # add space
@@ -157,7 +169,7 @@ if submit_btn:
     # Example for displaying images:
     col5, col6 = st.columns(2)
     with col5:
-        st.subheader("WordCloud of the restaurant")
+        st.subheader("Frequently Mentioned Keywords from our Customers")
 
         # st.image('notebooks/img/mothers_1.jpg', caption='Visual Representation of Common Review Comments')
 
@@ -175,7 +187,7 @@ if submit_btn:
 
 
     with col6:
-        st.subheader("WordCloud of other restaurants in same category")
+        st.subheader("Frequently Mentioned Keywords at our Competitors")
 
         #select the WordCloud Dictionary
         wc_other_dict = df_wordcloud_filtered["other_wc_dict"].iloc[0]
@@ -190,8 +202,6 @@ if submit_btn:
 
     st.text(" ")  # add space
     st.text(" ")  # add space
-    ####################################################################################################
-    ####################################################################################################
 
 
     ########## Display - Suggestions for Improvement
@@ -201,31 +211,40 @@ if submit_btn:
 
     # #####################################################
 
-    openai.api_key = st.secrets['OPENAI_API_KEY']
+    # openai.api_key = st.secrets['OPENAI_API_KEY']
 
-    # Create a prompt based on the top complaints for the restaurant
-    prompt = f"The following are the top customer complaints for {name}: {complaint_texts}. Can you suggest improvements for the restaurant within 100 words?"
+    # # Create a prompt based on the top complaints for the restaurant
+    # prompt = f"The following are the top customer complaints for {name}: {complaint_texts}. Can you suggest improvements for the restaurant within 100 words?"
 
-    # Make a request to the API to generate text
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # Use the engine of your choice
-        messages = [{"role": "user", "content": prompt}],
-        max_tokens = 100
-    )
+    # # Make a request to the API to generate text
+    # response = openai.ChatCompletion.create(
+    #     model="gpt-3.5-turbo",  # Use the engine of your choice
+    #     messages = [{"role": "user", "content": prompt}],
+    #     max_tokens = 100
+    # )
 
-    st.write(response["choices"][0]["message"]["content"])
+    # st.write(response["choices"][0]["message"]["content"])
     #####################################################
 
-    # st.write("""
-    # Based on the feedback gathered from customer reviews, we propose the following areas for improvement:
+    st.write("""
+    Based on the feedback gathered from customer reviews, we propose the following areas for improvement:
 
-    # 1. **Speed of Service**: Implementing a new table management system could reduce wait times and improve the flow of service.
-    # 2. **Staff Training**: Enhancing staff training programs can lead to better customer service and a more knowledgeable team.
-    # 3. **Menu Diversity**: Expanding the menu to include a wider variety of options may satisfy a larger customer base and cater to dietary restrictions.
-    # 4. **Quality Control**: Regular checks on food quality and preparation can ensure consistency and address issues related to undercooked or overpriced dishes.
-    # 5. **Ambiance Enhancements**: Small changes to lighting, music, and seating arrangements can significantly improve the overall dining experience.
+    1. **Speed of Service**: Implementing a new table management system could reduce wait times and improve the flow of service.
+    2. **Staff Training**: Enhancing staff training programs can lead to better customer service and a more knowledgeable team.
+    3. **Menu Diversity**: Expanding the menu to include a wider variety of options may satisfy a larger customer base and cater to dietary restrictions.
+    4. **Quality Control**: Regular checks on food quality and preparation can ensure consistency and address issues related to undercooked or overpriced dishes.
+    5. **Ambiance Enhancements**: Small changes to lighting, music, and seating arrangements can significantly improve the overall dining experience.
 
-    # By focusing on these key areas, the restaurant can address the most pressing concerns of its patrons, potentially leading to higher satisfaction and repeat business.
-    # """)
+    By focusing on these key areas, the restaurant can address the most pressing concerns of its patrons, potentially leading to higher satisfaction and repeat business.
+    """)
     ####################################################################################################
     ####################################################################################################
+
+st.markdown(
+    """
+<style>
+
+</style>
+""",
+    unsafe_allow_html=True,
+)
