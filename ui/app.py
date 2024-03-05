@@ -9,6 +9,8 @@ from wordcloud import WordCloud
 import openai
 import ast
 import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 
 # Set page config
@@ -100,57 +102,43 @@ if submit_btn:
     with col3:
         st.subheader("Top 5 Praises")
         top_praises = df_praise_filtered.nlargest(5, 'praise_score')
-        top_praises = top_praises.sort_values('praise_score', ascending=True)
         fig, ax = plt.subplots()
-        ax.barh(top_praises['praise_text'], top_praises['praise_score'])
+        sns.barplot(x='praise_score', y='praise_text', data=top_praises, ax=ax, palette="Blues_d")
         plt.xlabel('Praise Score')
         st.pyplot(fig)
-
-       # Praise Example
-        st.text(" ")  # add space
-        st.subheader("Praise Examples")
-        praise_example_texts = df_example_filtered['praise_sample_reviews'].tolist()
-
-        for index, row in df_example_filtered.iterrows():
-            # Use the 'praise_text' as the expander label
-            with st.expander(row['praise_words']):
-                # Here you can show detailed examples related to the 'praise_text'
-                # For now, let's show the 'praise_text' itself as an example
-                st.write(row['praise_sample_reviews'])
-                # If you have detailed examples, you can filter them from 'df_example_filtered' based on 'praise_text'
-                # detailed_examples = df_example_filtered[df_example_filtered['some_column'] == row['praise_text']]
-                # for example in detailed_examples:
-                #     st.write(example['praise_sample_reviews'])
-
 
     ####################################################################################################
     with col4:
         st.subheader("Top 5 Complaints")
-        top_complaints = df_complaint_filtered.nlargest(5, 'complaint_score')
+        # Ensure the complaints are sorted in ascending order by the 'complaint_score'
+        top_complaints = df_complaint_filtered.nsmallest(5, 'complaint_score')
+        # Sort the DataFrame in descending order to have 'open' at the top when plotted
         top_complaints = top_complaints.sort_values('complaint_score', ascending=False)
         fig, ax = plt.subplots()
-        ax.barh(top_complaints['complaint_text'], top_complaints['complaint_score'])
+        sns.barplot(x='complaint_score', y='complaint_text', data=top_complaints, ax=ax, palette="Reds_d")
         plt.xlabel('Complaint Score')
         st.pyplot(fig)
 
-        st.subheader("Complaint Examples")
-        # Complaint Examples
-        # complaint_example_texts = df_example_filtered['complaint_sample_reviews'].tolist()
-        # for complaint_example in complaint_example_texts:
-        #     st.write(complaint_example)
-        #     st.text(" ")  # add space
-        #     st.text(" ")  # add space
-        #     st.text(" ")  # add space
+    ####################################################################################################
+    ####################################################################################################
+
+    col5, col6 = st.columns(2)
+    with col5:
+        st.subheader("Praise Examples")
+        praise_example_texts = df_example_filtered['praise_sample_reviews'].tolist()
+
         for index, row in df_example_filtered.iterrows():
-            # Use the 'praise_text' as the expander label
+            with st.expander(row['praise_words']):
+                st.write(row['praise_sample_reviews'])
+
+
+    ####################################################################################################
+    with col6:
+        st.subheader("Complaint Examples")
+        df_example_filtered_sorted = df_example_filtered.sort_index(ascending=False)  # This reverses the order
+        for index, row in df_example_filtered_sorted.iterrows():
             with st.expander(row['complaint_words']):
-                # Here you can show detailed examples related to the 'praise_text'
-                # For now, let's show the 'praise_text' itself as an example
                 st.write(row['complaint_sample_reviews'])
-                # If you have detailed examples, you can filter them from 'df_example_filtered' based on 'praise_text'
-                # detailed_examples = df_example_filtered[df_example_filtered['some_column'] == row['praise_text']]
-                # for example in detailed_examples:
-                #     st.write(example['praise_sample_reviews'])
 
 
     ####################################################################################################
@@ -167,8 +155,8 @@ if submit_btn:
     ####################################################################################################
     # You will need to generate the word clouds separately and display them here
     # Example for displaying images:
-    col5, col6 = st.columns(2)
-    with col5:
+    col7, col8 = st.columns(2)
+    with col7:
         st.subheader("Frequently Mentioned Keywords from our Customers")
 
         # st.image('notebooks/img/mothers_1.jpg', caption='Visual Representation of Common Review Comments')
@@ -186,7 +174,7 @@ if submit_btn:
         st.image(wc_own.to_array())
 
 
-    with col6:
+    with col8:
         st.subheader("Frequently Mentioned Keywords at our Competitors")
 
         #select the WordCloud Dictionary
