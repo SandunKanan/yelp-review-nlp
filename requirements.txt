@@ -7,4 +7,5 @@ streamlit
 openai==0.28.0
 wordcloud
 seaborn
-plotly.graph_objects
+plotly
+matplotlib
