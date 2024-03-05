@@ -6,3 +6,4 @@ scikit-learn
 streamlit
 openai==0.28.0
 wordcloud
+seaborn
