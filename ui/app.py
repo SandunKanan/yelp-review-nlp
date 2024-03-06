@@ -18,33 +18,93 @@ st.set_page_config(layout="wide")
 ####################################################################################################
 ####################################################################################################
 
+st.markdown(
+"""
+<style>
+/* ---- Padding on header ---- */
+.st-emotion-cache-z5fcl4 {
+    padding-top: 1rem;
+}
+
+/* ---- Review Summery ---- */
+.js-plotly-plot .plotly, .js-plotly-plot .plotly div {
+    margin: -50px 0;
+    z-index: 1;
+}
+.st-emotion-cache-1629p8f h1, .st-emotion-cache-1629p8f h2, .st-emotion-cache-1629p8f h3, .st-emotion-cache-1629p8f h4, .st-emotion-cache-1629p8f h5, .st-emotion-cache-1629p8f h6, .st-emotion-cache-1629p8f span{
+z-index: 99;
+}
+
+/* ---- Column Gap ---- */
+.st-emotion-cache-keje6w {
+padding: 0 30px 0px 0;
+}
+
+/* ---- Logo ---- */
+.st-emotion-cache-1v0mbdj {
+margin: 0 auto;
+}
+
+/* ---- Header ---- */
+.stTextInput > div > div {
+    padding: 10px; /* You can adjust this value */
+}
+
+.stButton > button {
+    width: 100%; /* Makes the button stretch to full width */
+    padding: 10px; /* You can adjust this value */
+}
+.st-emotion-cache-r421ms {
+border: none;
+}
+/* ---- Restaurant Name ---- */
+.big-font {
+    font-size:24px !important;
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
+
+
+# You may want to add custom styling to adjust the look and feel
+# This is done using markdown and unsafe_allow_html
+st.markdown("""
+<style>
+
+</style>
+""", unsafe_allow_html=True)
 ############# Display - User Input ###################
 ####################################################################################################
 ####################################################################################################
 
 # Set up the layout for the header
-st.title("NLPalate")
-st.caption("Select a restaurant to analyze reviews and gain insights.")
+# st.title("NLPalate")
+# st.caption("Select a restaurant to analyze reviews and gain insights.")
 
+left_co,left2_co, cent_co,last2_co,last_co = st.columns([2,2,3,2,2])
+with cent_co:
+    st.image('ui/img/logo_nlpalate_200.png', use_column_width=True, width=180)
 # Set up the form
+# Create a search bar form
 with st.form(key='user_input_form'):
-    # Organize the inputs and button in two columns
-    col1, col2 = st.columns([3, 1])  # Adjust the ratio based on your preference
-
-    with col1:
-        name = st.selectbox("Restaurant Name", [
-            'Luke', 'Gumbo Shop', "Commander's Palace", 'Royal House',
-            "Felix's Restaurant & Oyster Bar", 'Cochon', "Mother's Restaurant",
-            'Oceana Grill', 'Acme Oyster House', 'Ruby Slipper - New Orleans'
-        ])
+    # Organize the inputs and button in a single column for better control
+    col1,col2,col3 = st.columns([2,3,2])
 
     with col2:
+        # Create a text input that stretches to full width
+        name = st.text_input('Restaurant Name (e.g. Luke, Gumbo Shop, Royal House, Cochon)', max_chars=50)
+
+        # Create some space between the text input and button
         st.text(" ")
-        st.text(" ")
+
+        # Create a centered submit button with adjusted width
         submit_btn = st.form_submit_button('Get Results')
 
+
 # Add space below the form
-st.text(" ")
+# st.caption("Choose from : Luke, Gumbo Shop, Commander's Palace, Royal House, Felix's Restaurant & Oyster Bar, Cochon, Mother's Restaurant, Oceana Grill, Acme Oyster House, Ruby Slipper - New Orleans")
 
 
 # Read the data tables only once, not inside the conditional
@@ -77,12 +137,13 @@ if submit_btn:
     ####################################################################################################
     st.text(" ")
     st.text(" ")
+
     col1, col2 = st.columns(2)
     with col1:
-        st.subheader("Restaurant Name")
-        st.write(f"{name}")
+        st.header("Restaurant Name")
+        st.markdown(f'<div class="big-font">{name}</div>', unsafe_allow_html=True)
     with col2:
-        st.subheader("Category")
+        st.header("Category")
         st.write(f"{df_business_filtered['categories'].iloc[0]}")
         # st.metric(label="Average Review Scores", value=average_reviews)
         # st.metric(label="Total Reviews", value=review_count)
@@ -93,7 +154,7 @@ if submit_btn:
     st.text(" ")  # add space
     st.text(" ")  # add space
     st.text(" ")  # add space
-    st.subheader("Review Summary")
+    st.header("Review Summary")
     col3, col4, col5 = st.columns(3)
     with col3:
         
@@ -141,8 +202,6 @@ if submit_btn:
     ####################################################################################################
     ####################################################################################################
     # Filter and sort for top 5 praises
-    st.text(" ")  # add space
-    st.text(" ")  # add space
     col6, col7 = st.columns(2)
     with col6:
         # st.subheader("Top 5 Praises")
@@ -151,7 +210,7 @@ if submit_btn:
         # sns.barplot(x='praise_score', y='praise_text', data=top_praises, ax=ax, palette="Blues_d")
         # plt.xlabel('Praise Score')
         # st.pyplot(fig)
-        st.subheader("Top 5 Praises")
+        st.header("Top 5 Praises")
         top_praises = df_example_filtered.nlargest(5, 'praise_coeff')
         fig, ax = plt.subplots()
         sns.barplot(x='praise_coeff', y='praise_words', data=top_praises, ax=ax, palette="Blues_d")
@@ -160,7 +219,7 @@ if submit_btn:
 
     ####################################################################################################
     with col7:
-        st.subheader("Top 5 Complaints")
+        st.header("Top 5 Complaints")
         # Ensure the complaints are sorted in ascending order by the 'complaint_score'
         top_complaints = df_example_filtered.nsmallest(5, 'complaint_coeff')
         # Sort the DataFrame in descending order to have 'open' at the top when plotted
@@ -176,7 +235,7 @@ if submit_btn:
     st.text(" ")  # add space
     col8, col9 = st.columns(2)
     with col8:
-        st.subheader("Praise Examples")
+        st.header("Praise Examples")
         df_example_filtered_praise_order = df_example_filtered.nlargest(5, 'praise_coeff')
 
         for index, row in df_example_filtered_praise_order.iterrows():
@@ -186,7 +245,7 @@ if submit_btn:
 
     ####################################################################################################
     with col9:
-        st.subheader("Complaint Examples")
+        st.header("Complaint Examples")
         df_example_filtered_complaint_order = df_example_filtered.nsmallest(5, 'complaint_coeff')
         for index, row in df_example_filtered_complaint_order.iterrows():
             with st.expander(row['complaint_words']):
@@ -270,7 +329,7 @@ if submit_btn:
 
     st.markdown("""
         <div style="padding: 30px 50px; order-radius: 10px; background-color:rgb(241 243 254); border-radius:30px;">
-        <h3>Suggestions for Improvement</h3>
+        <h2>Suggestions for Improvement</h2>
         <b>Based on the feedback gathered from customer reviews, we propose the following areas for improvement:</b>
 
         <ol>
@@ -287,20 +346,4 @@ if submit_btn:
     ####################################################################################################
     ####################################################################################################
 
-st.markdown(
-    """
-    <style>
-    .js-plotly-plot .plotly, .js-plotly-plot .plotly div {
-        margin: -50px 0;
-        z-index: 1;
-    }
-    .st-emotion-cache-1629p8f h1, .st-emotion-cache-1629p8f h2, .st-emotion-cache-1629p8f h3, .st-emotion-cache-1629p8f h4, .st-emotion-cache-1629p8f h5, .st-emotion-cache-1629p8f h6, .st-emotion-cache-1629p8f span{
-    z-index: 99;
-}
-.st-emotion-cache-keje6w {
-    padding: 0 30px 0px 0;
-}
-    </style>
-""",
-    unsafe_allow_html=True,
-)
+
