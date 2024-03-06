@@ -53,7 +53,7 @@ df_business = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_bus
 df_praise = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_praise_top10.csv')
 df_complaint = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_complaint_top10.csv')
 df_wordcloud = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_wordcloud_top10.csv')
-df_example = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_examples_top10.csv')
+df_example = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_examples2_top10.csv')
 
 # Display the result
 if submit_btn:
@@ -81,8 +81,6 @@ if submit_btn:
     with col1:
         st.subheader("Restaurant Name")
         st.write(f"{name}")
-
-
     with col2:
         st.subheader("Category")
         st.write(f"{df_business_filtered['categories'].iloc[0]}")
@@ -104,7 +102,8 @@ if submit_btn:
             value=average_reviews,
             domain={'x': [0, 1], 'y': [0, 1]},
             title={'text': "Average Review Scores"},
-            gauge={'axis': {'range': [None, 5]}, 'bar': {'color': "#7d8beb"}}
+            gauge={'axis': {'range': [None, 5]}, 'bar': {'color': "#7d8beb"}},
+            number={'font': {'color': "rgb(34, 34, 34)"}}  # Set number font color to black and adjust size as needed
         ))
 
         # Use Streamlit to render Plotly chart
@@ -117,6 +116,7 @@ if submit_btn:
             value=review_count,
             domain={'x': [0, 1], 'y': [0, 1]},
             title={'text': "Total Reviews"},
+            number={'font': {'color': "rgb(34, 34, 34)"}}  # Set number font color to black and adjust size as needed
         ))
 
         # Use Streamlit to render Plotly chart 
@@ -132,7 +132,8 @@ if submit_btn:
                 'text': "Average Review Score of Other Restaurants Within 10 Miles",
                 'font': {'size': 13}  # Adjust the size as needed
             },
-            gauge={'axis': {'range': [None, 5]}, 'bar': {'color': "#cdd2f8"}}
+            gauge={'axis': {'range': [None, 5]}, 'bar': {'color': "#cdd2f8"}},
+            number={'font': {'color': "rgb(34, 34, 34)"}}  # Set number font color to black and adjust size as needed
         ))
         fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))  # Reducing margin/padding
         st.plotly_chart(fig, use_container_width=True)
@@ -140,13 +141,20 @@ if submit_btn:
     ####################################################################################################
     ####################################################################################################
     # Filter and sort for top 5 praises
-
+    st.text(" ")  # add space
+    st.text(" ")  # add space
     col6, col7 = st.columns(2)
     with col6:
+        # st.subheader("Top 5 Praises")
+        # top_praises = df_praise_filtered.nlargest(5, 'praise_score')
+        # fig, ax = plt.subplots()
+        # sns.barplot(x='praise_score', y='praise_text', data=top_praises, ax=ax, palette="Blues_d")
+        # plt.xlabel('Praise Score')
+        # st.pyplot(fig)
         st.subheader("Top 5 Praises")
-        top_praises = df_praise_filtered.nlargest(5, 'praise_score')
+        top_praises = df_example_filtered.nlargest(5, 'praise_coeff')
         fig, ax = plt.subplots()
-        sns.barplot(x='praise_score', y='praise_text', data=top_praises, ax=ax, palette="Blues_d")
+        sns.barplot(x='praise_coeff', y='praise_words', data=top_praises, ax=ax, palette="Blues_d")
         plt.xlabel('Praise Score')
         st.pyplot(fig)
 
@@ -154,11 +162,11 @@ if submit_btn:
     with col7:
         st.subheader("Top 5 Complaints")
         # Ensure the complaints are sorted in ascending order by the 'complaint_score'
-        top_complaints = df_complaint_filtered.nsmallest(5, 'complaint_score')
+        top_complaints = df_example_filtered.nsmallest(5, 'complaint_coeff')
         # Sort the DataFrame in descending order to have 'open' at the top when plotted
-        top_complaints = top_complaints.sort_values('complaint_score', ascending=False)
+        # top_complaints = top_complaints.sort_values('complaint_coeff', ascending=False)
         fig, ax = plt.subplots()
-        sns.barplot(x='complaint_score', y='complaint_text', data=top_complaints, ax=ax, palette="Reds_d")
+        sns.barplot(x='complaint_coeff', y='complaint_words', data=top_complaints, ax=ax, palette="Reds_d")
         plt.xlabel('Complaint Score')
         st.pyplot(fig)
 
@@ -169,9 +177,9 @@ if submit_btn:
     col8, col9 = st.columns(2)
     with col8:
         st.subheader("Praise Examples")
-        praise_example_texts = df_example_filtered['praise_sample_reviews'].tolist()
+        df_example_filtered_praise_order = df_example_filtered.nlargest(5, 'praise_coeff')
 
-        for index, row in df_example_filtered.iterrows():
+        for index, row in df_example_filtered_praise_order.iterrows():
             with st.expander(row['praise_words']):
                 st.write(row['praise_sample_reviews'])
 
@@ -179,8 +187,8 @@ if submit_btn:
     ####################################################################################################
     with col9:
         st.subheader("Complaint Examples")
-        df_example_filtered_sorted = df_example_filtered.sort_index(ascending=False)  # This reverses the order
-        for index, row in df_example_filtered_sorted.iterrows():
+        df_example_filtered_complaint_order = df_example_filtered.nsmallest(5, 'complaint_coeff')
+        for index, row in df_example_filtered_complaint_order.iterrows():
             with st.expander(row['complaint_words']):
                 st.write(row['complaint_sample_reviews'])
 
@@ -283,11 +291,14 @@ st.markdown(
     """
     <style>
     .js-plotly-plot .plotly, .js-plotly-plot .plotly div {
-        margin: -70px 0;
+        margin: -50px 0;
         z-index: 1;
     }
-    .css-10trblm {
+    .st-emotion-cache-1629p8f h1, .st-emotion-cache-1629p8f h2, .st-emotion-cache-1629p8f h3, .st-emotion-cache-1629p8f h4, .st-emotion-cache-1629p8f h5, .st-emotion-cache-1629p8f h6, .st-emotion-cache-1629p8f span{
     z-index: 99;
+}
+.st-emotion-cache-keje6w {
+    padding: 0 30px 0px 0;
 }
     </style>
 """,
