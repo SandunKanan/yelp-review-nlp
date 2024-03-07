@@ -82,7 +82,11 @@ border: none;
     unsafe_allow_html=True,
 )
 
-
+# Session state
+if "get_result" not in st.session_state:
+    st.session_state["get_result"] = False
+if "run_regression" not in st.session_state:
+    st.session_state["run_regression"] = False
 
 # You may want to add custom styling to adjust the look and feel
 # This is done using markdown and unsafe_allow_html
@@ -129,7 +133,7 @@ df_business = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_bus
 df_praise = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_praise_top10.csv')
 df_complaint = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_complaint_top10.csv')
 df_wordcloud = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_wordcloud_top10.csv')
-df_example = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_examples2_top10.csv')
+df_example = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_example_top_10_b.csv')
 
 # Display the result
 if submit_btn:
@@ -284,6 +288,11 @@ if submit_btn:
         ax.set_ylabel('')  # Removes the y-axis label
         st.pyplot(fig)
 
+
+
+    with st.expander("Show model explanation"):
+        st.image("ui/img/model_explanation.png")
+
     ####################################################################################################
     ####################################################################################################
     st.text(" ")  # add space
@@ -306,21 +315,35 @@ if submit_btn:
             with st.expander(row['complaint_words']):
                 st.write(row['complaint_sample_reviews'])
 
-
     ####################################################################################################
     ####################################################################################################
 
-
     st.text(" ")  # add space
     st.text(" ")  # add space
     st.text(" ")  # add space
     st.text(" ")  # add space
 
 
+    get_topics = st.button('Get Topics')
+    run_regression = st.button('Run Regression') # Show Explanation
 
+
+
+    get_suggestions = st.button('Get Suggestions')
+    # Display the result
+    if get_suggestions:
+        st.session_state.more_stuff = True
+    
+    if 
+        st.markdown(f"""
+                <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
+                    <h2 style="color: #333;text-align:center;">Suggestion for Improvement</h2>
+                    <p>{df_business_filtered['ai_suggestion'].iloc[0]}</p>
+                </div>
+                """, unsafe_allow_html=True)
 
     ########## Display - Suggestions for Improvement
-    ####################################################################################################
+    ############################################################################to########################
     ####################################################################################################
     # st.header("Suggestions for Improvement")
 
@@ -357,14 +380,9 @@ if submit_btn:
     #     </div>
     # """, unsafe_allow_html=True)
     # st.write(f"{df_business_filtered['ai_suggestion'].iloc[0]}")
-    st.markdown(f"""
-            <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
-                <h2 style="color: #333;text-align:center;">Suggestion for Improvement</h2>
-                <p>{df_business_filtered['ai_suggestion'].iloc[0]}</p>
-            </div>
-            """, unsafe_allow_html=True)
 
-
+    
+ 
     ####################################################################################################
     ####################################################################################################
 
