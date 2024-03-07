@@ -280,8 +280,7 @@ if st.session_state["get_result"]:
 
     st.text(" ")  # add space
     st.text(" ")  # add space
-    st.text(" ")  # add space
-    st.text(" ")  # add space
+
 
 
 
@@ -339,6 +338,11 @@ if st.session_state["get_result"]:
          "to differentiate the irrelevant word ‘just’ from the important ones. Just remember, that the word just doesn't add "
          "any value to the reviews, it's just how people talk.")
         st.image("ui/img/tf-idf.png")
+    st.text(" ")  # add space
+    st.text(" ")  # add space
+    st.text(" ")  # add space
+    st.text(" ")  # add space
+    st.header("Advanced Modeling")
     st.button(
         'Get Topics',
         on_click=lambda: st.session_state.update({"get_topics": True})
