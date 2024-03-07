@@ -12,19 +12,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 
-# Set page config
 st.set_page_config(layout="wide")
-################## Display - Tilte ###################
-####################################################################################################
-####################################################################################################
 
 st.markdown(
 """
 <style>
 /* ---- Padding on header ---- */
-.st-emotion-cache-z5fcl4 {
-    padding-top: 1.5rem;
-}
+.st-emotion-cache-z5fcl4 {padding-top: 1.5rem;}
 
 /* ---- Review Summery ---- */
 .js-plotly-plot .plotly, .js-plotly-plot .plotly div {
@@ -37,9 +31,7 @@ text-align: center;
 }
 
 /* ---- Column Gap ---- */
-.st-emotion-cache-keje6w {
-padding: 0 30px 0px 0;
-}
+.st-emotion-cache-keje6w {padding: 0 30px 0px 0;}
 
 /* ---- Logo ---- */
 .st-emotion-cache-1v0mbdj {
@@ -51,7 +43,7 @@ margin: 0 auto;
     padding: 10px; 
 }
 
-.stButton > button {
+.stButton > .st-emotion-cache-7ym5gk {
     width: 100%; 
     padding: 10px; 
 }
@@ -76,7 +68,15 @@ border: none;
     text-align: left;
 }
 
-
+table.dataframe {
+    caption-side: bottom;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+.st-emotion-cache-l9bjmx {
+    font-family: "Source Sans Pro", sans-serif;
+    margin: 0 auto;
+}
 </style>
 """,
     unsafe_allow_html=True,
@@ -85,76 +85,61 @@ border: none;
 # Session state
 if "get_result" not in st.session_state:
     st.session_state["get_result"] = False
+if "get_topics" not in st.session_state:
+    st.session_state["get_topics"] = False
 if "run_regression" not in st.session_state:
     st.session_state["run_regression"] = False
+if "get_suggestions" not in st.session_state:
+    st.session_state["get_suggestions"] = False
 
-# You may want to add custom styling to adjust the look and feel
-# This is done using markdown and unsafe_allow_html
-st.markdown("""
-<style>
 
-</style>
-""", unsafe_allow_html=True)
-############# Display - User Input ###################
-####################################################################################################
-####################################################################################################
-
-# Set up the layout for the header
-# st.title("NLPalate")
-# st.caption("Select a restaurant to analyze reviews and gain insights.")
-
+############# Display - Title / User Input ###################
 left_co,left2_co, cent_co,last2_co,last_co = st.columns([2,2,3,2,2])
 with cent_co:
     st.image('ui/img/logo_nlpalate_200.png', use_column_width=True, width=180)
-# Set up the form
-# Create a search bar form
+
 with st.form(key='user_input_form'):
-    # Organize the inputs and button in a single column for better control
     col1,col2,col3 = st.columns([2,3,2])
 
     with col2:
-        # Create a text input that stretches to full width
-        name = st.text_input('Restaurant Name (e.g. Luke, Gumbo Shop, Royal House, Cochon)', max_chars=50)
-
-        # Create some space between the text input and button
+        name = st.text_input("Restaurant Name (e.g. Luke, Royal House, Cochon, Mother's restaurant)", max_chars=50)
         st.text(" ")
+        st.form_submit_button(
+            'Get Results',
+            on_click=lambda: st.session_state.update({"get_result": True})
+        )
 
-        # Create a centered submit button with adjusted width
-        submit_btn = st.form_submit_button('Get Results')
-
-
-# Add space below the form
-# st.caption("Choose from : Luke, Gumbo Shop, Commander's Palace, Royal House, Felix's Restaurant & Oyster Bar, Cochon, Mother's Restaurant, Oceana Grill, Acme Oyster House, Ruby Slipper - New Orleans")
-
-
-# Read the data tables only once, not inside the conditional
+# Read CSV
 df_review = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_review_top10.csv')
 df_business = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_business2_top10.csv')
 df_praise = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_praise_top10.csv')
 df_complaint = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_complaint_top10.csv')
 df_wordcloud = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_wordcloud_top10.csv')
 df_example = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_example_top_10_b.csv')
+df_lda = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_coefficients_lda.csv')
+df_get_topics = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_get_topics2.csv')
 
 # Display the result
-if submit_btn:
-    # Filter data based on the restaurant name
+
+df_get_topics = df_get_topics[['topic_label', 'phrase', 'score']]
+df_get_topics = df_get_topics.rename(columns={'topic_label': 'Topic', 'phrase': 'Phrase', 'score': 'Score'})
+
+
+# Display the result
+if st.session_state["get_result"]:
     df_review_filtered = df_review[df_review['name'].str.contains(name, case=False, na=False)]
     df_business_filtered = df_business[df_business['name'].str.contains(name, case=False, na=False)]
     df_praise_filtered = df_praise[df_praise['name'].str.contains(name, case=False, na=False)]
     df_complaint_filtered = df_complaint[df_complaint['name'].str.contains(name, case=False, na=False)]
     df_wordcloud_filtered = df_wordcloud[df_wordcloud['name'].str.contains(name, case=False, na=False)]
     df_example_filtered = df_example[df_example['name'].str.contains(name, case=False, na=False)]
-
-    ############ Average reviews
-    ####################################################################################################
-    ####################################################################################################
+    df_lda_filtered = df_lda[df_lda['name'].str.contains(name, case=False, na=False)]
+    ############ Average reviews ############
     average_reviews = round(df_review_filtered['stars'].mean(), 1)  # Average number of stars
     review_count = len(df_review_filtered)   # Total number of reviews
     avg_stars10m_radius = round(df_review_filtered['avg_stars10m_radius'].mean(), 1)   # Avg stars in 10 mile radius
 
-    ############ Display - Restaurant Information
-    ####################################################################################################
-    ####################################################################################################
+    ############ Display - Restaurant Information ############
     st.text(" ")
     st.text(" ")
 
@@ -164,12 +149,7 @@ if submit_btn:
         st.markdown(f'<div class="big-font">{name}</div>', unsafe_allow_html=True)
     with col2:
         st.header("Category")
-        # st.write(f"{df_business_filtered['categories'].iloc[0]}")
         st.markdown(f"<div style='text-align: center'>{df_business_filtered['categories'].iloc[0]}</div>", unsafe_allow_html=True)
-
-        # st.metric(label="Average Review Scores", value=average_reviews)
-        # st.metric(label="Total Reviews", value=review_count)
-        # st.metric(label="Average Review Score of Other Restaurants Within 10 Miles", value=avg_stars10m_radius)
 
     # Subheader for all plots
     st.text(" ")  # add space
@@ -189,7 +169,6 @@ if submit_btn:
             number={'font': {'color': "rgb(34, 34, 34)"}}  # Set number font color to black and adjust size as needed
         ))
 
-        # Use Streamlit to render Plotly chart
         fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))  # Reducing margin/padding
         st.plotly_chart(fig, use_container_width=True)
 
@@ -202,7 +181,6 @@ if submit_btn:
             number={'font': {'color': "rgb(34, 34, 34)"}}  # Set number font color to black and adjust size as needed
         ))
 
-        # Use Streamlit to render Plotly chart 
         fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))  # Reducing margin/padding
         st.plotly_chart(fig, use_container_width=True)
 
@@ -221,26 +199,15 @@ if submit_btn:
         fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))  # Reducing margin/padding
         st.plotly_chart(fig, use_container_width=True)
 
-    ########## Display - Word Clouds
-    ####################################################################################################
-    ####################################################################################################
-    # You will need to generate the word clouds separately and display them here
-    # Example for displaying images:
+    ########## Display - Word Clouds ##########
     st.header("Frequently Mentioned Keywords")
     col10, col11 = st.columns(2)
     
     with col10:
         st.subheader("Our Restaurant")
-
-        # st.image('notebooks/img/mothers_1.jpg', caption='Visual Representation of Common Review Comments')
-
         st.set_option('deprecation.showPyplotGlobalUse', False)
-
-        #select the WordCloud Dictionary
         wc_own_dict = df_wordcloud_filtered["own_wc_dict"].iloc[0]
         wc_own_dict = ast.literal_eval(wc_own_dict)
-
-        #Display WordCloud
         wc_own = WordCloud(width=800,
                       height=400,
                       background_color='white').fit_words(wc_own_dict)
@@ -248,12 +215,8 @@ if submit_btn:
 
     with col11:
         st.subheader("Our Competitors")
-
-        #select the WordCloud Dictionary
         wc_other_dict = df_wordcloud_filtered["other_wc_dict"].iloc[0]
         wc_other_dict = ast.literal_eval(wc_other_dict)
-
-        #Display WordCloud
         wc_other = WordCloud(width=800,
                       height=400,
                       colormap = 'BuPu_r',
@@ -264,10 +227,7 @@ if submit_btn:
     st.text(" ")  # add space
     st.text(" ")  # add space
     st.text(" ")  # add space
-    ########## Display - Top 5 Compliments / Complaints
-    ####################################################################################################
-    ####################################################################################################
-    # Filter and sort for top 5 praises
+    ########## Display - Top 5 Compliments / Complaints ##########
     col6, col7 = st.columns(2)
     with col6:
         st.header("Top 5 Praises")
@@ -278,7 +238,6 @@ if submit_btn:
         ax.set_ylabel('')  # Removes the y-axis label
         st.pyplot(fig)
 
-    ####################################################################################################
     with col7:
         st.header("Top 5 Complaints")
         top_complaints = df_example_filtered.nsmallest(5, 'complaint_coeff')
@@ -290,11 +249,14 @@ if submit_btn:
 
 
 
-    with st.expander("Show model explanation"):
-        st.image("ui/img/model_explanation.png")
 
-    ####################################################################################################
-    ####################################################################################################
+
+
+
+
+
+
+     ########## Display - Examples ##########
     st.text(" ")  # add space
     st.text(" ")  # add space
     col8, col9 = st.columns(2)
@@ -306,8 +268,6 @@ if submit_btn:
             with st.expander(row['praise_words']):
                 st.write(row['praise_sample_reviews'])
 
-
-    ####################################################################################################
     with col9:
         st.header("Complaint Examples")
         df_example_filtered_complaint_order = df_example_filtered.nsmallest(5, 'complaint_coeff')
@@ -324,17 +284,123 @@ if submit_btn:
     st.text(" ")  # add space
 
 
-    get_topics = st.button('Get Topics')
-    run_regression = st.button('Run Regression') # Show Explanation
+
+    # col1, col2, col3 = st.columns(3)
+
+    # with col1:
+    #     st.button(
+    #         'Get Topics',
+    #         on_click=lambda: st.session_state.update({"get_topics": True})
+    #     ) 
+    #     if st.session_state["get_topics"]:
+    #         st.markdown(f"""
+    #                 <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
+    #                     <h2 style="color: #333;text-align:center;">Get Topics</h2>
+    #                     <p>test</p>
+    #                 </div>
+    #                 """, unsafe_allow_html=True)
+
+    # with col2:
+    #     st.button(
+    #         'Run Regression',
+    #         on_click=lambda: st.session_state.update({"run_regression": True})
+
+    #     ) 
+    #     if st.session_state["run_regression"]:
+    #         st.markdown(f"""
+    #                 <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
+    #                     <h2 style="color: #333;text-align:center;">Run Regression</h2>
+    #                     <p>test</p>
+    #                 </div>
+    #                 """, unsafe_allow_html=True)
+
+    # with col3:
+    #     st.button(
+    #         'Get Suggestions',
+    #         on_click=lambda: st.session_state.update({"get_suggestions": True})
+
+    #     ) 
+    #     if st.session_state["get_suggestions"]:
+    #         st.markdown(f"""
+    #                 <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
+    #                     <h2 style="color: #333;text-align:center;">Suggestion for Improvement</h2>
+    #                     <p>{df_business_filtered['ai_suggestion'].iloc[0]}</p>
+    #                 </div>
+    #                 """, unsafe_allow_html=True)
+
+    ########## Get Topics ##########
+
+    with st.expander("Show TF-IDF explanation"):
+        st.write("Review 1: ‘Just serves the best pancakes in town. The service is excellent and the atmosphere is cozy.’ \n\n"
+         "Review 2: ‘Just wonderful! The burgers were delicious and the staff was friendly.’ \n\n"
+         "Review 3: ‘Just mediocre food and the service was slow.’ \n\n"
+         "In ALL reviews, the word ‘just’ appears, so the weight TF-IDF assigns is zero. Conversely, ‘best pancakes’, "
+         "‘burgers delicious’, and ‘service slow’ appear in one review, so their weight will be high. You can use colors "
+         "to differentiate the irrelevant word ‘just’ from the important ones. Just remember, that the word just doesn't add "
+         "any value to the reviews, it's just how people talk.")
+        st.image("ui/img/tf-idf.png")
+    st.button(
+        'Get Topics',
+        on_click=lambda: st.session_state.update({"get_topics": True})
+    ) 
+    if st.session_state["get_topics"]:
+        # Convert DataFrame to HTML and use style to hide index and header
+        df_html = df_get_topics.to_html(index=False, border=0)
+
+        # Display the DataFrame within the markdown container, ensuring HTML safety
+        st.markdown(f"""
+                    <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
+                        <h2 style="color: #333;text-align:center;">Phrases Allocated Topic</h2>
+                        {df_html}
+                    </div>
+                    """, unsafe_allow_html=True)
+        
+
+    with st.expander("Show Topic Modelling (LDA) explanation"):
+        st.write("Latent Dirichlet Allocation (LDA) is an advanced technique used to categorize words into topics.. Initially, words present in text are randomly assigned to topics, and through iterative adjustments, LDA seeks to predict the composition of the original document accurately. This process is grounded in a methodical approach where, over numerous iterations, the model identifies the allocation of words to topics that best reflects the observed text. The effectiveness of LDA stems from its ability to discern the underlying themes within texts, such as ‘service quality’ or ‘atmosphere’, from seemingly unstructured data. By automatically discovering these themes, LDA provides actionable insights into large datasets.")
+        st.image("ui/img/lda1.png")
+        st.image("ui/img/lda2.png")
 
 
+    ########## Run Regression ##########
+    df_lda_filtered_top5 = df_lda_filtered[df_lda_filtered['Coefficient Type'] == 'Top 5 Positive']
+    df_lda_filtered_bottom5 = df_lda_filtered[df_lda_filtered['Coefficient Type'] == 'Bottom 5 Negative']
+    # Get a list of features for top 5 positive
+    top_5_positive_features = df_lda_filtered_top5['Feature'].tolist()
+    # Join into a single string with a separator like a comma or line break
+    top_5_positive_features_str = ', '.join(top_5_positive_features)
 
-    get_suggestions = st.button('Get Suggestions')
-    # Display the result
-    if get_suggestions:
-        st.session_state.more_stuff = True
-    
-    if 
+    # Get a list of features for bottom 5 negative
+    bottom_5_negative_features = df_lda_filtered_bottom5['Feature'].tolist()
+    # Join into a single string with a separator like a comma or line break
+    bottom_5_negative_features_str = ', '.join(bottom_5_negative_features)
+    st.button(
+        'Run Regression',
+        on_click=lambda: st.session_state.update({"run_regression": True})
+
+    ) 
+    if st.session_state["run_regression"]:
+        st.markdown(f"""
+                <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
+                    <h2 style="color: #333;text-align:center;">Most Frequent Topics Mentioned</h2>
+                    <p style="text-align:center;"><b>Top 5 Positive:</b> {top_5_positive_features_str}</p>
+                    <p style="text-align:center;"><b>Bottom 5 Negative:</b> {bottom_5_negative_features_str}</p>
+                </div>
+                """, unsafe_allow_html=True)
+        
+
+    with st.expander("Show Linear Regression Explanation"):
+        st.write("Imagine you're listening to people talk about Mother's Restaurant. Some say the ‘chicken wings are amazing’, while others complain aout ‘rude servicbe’. All this talk goes on for a long time on places like Yelp or social media. Now, if we want to figure out how much these good or bad comments affect the restaurant's overall rating, we use something called regression. Regression is like a magic math trick. It helps us see how each thing people mention, like ‘great chicken wings’ or ‘rude service’, affects the restaurant's score giving us impact coefficients. The cool part is these coefficients tell us exactly what needs fixing to get better ratings.")
+        st.image("ui/img/linear_regression.png")
+    ########## Get Suggestion ##########
+    # get_suggestions = st.button('Get Suggestions')
+
+    st.button(
+        'Get Suggestions',
+        on_click=lambda: st.session_state.update({"get_suggestions": True})
+
+    ) 
+    if st.session_state["get_suggestions"]:
         st.markdown(f"""
                 <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
                     <h2 style="color: #333;text-align:center;">Suggestion for Improvement</h2>
@@ -342,6 +408,11 @@ if submit_btn:
                 </div>
                 """, unsafe_allow_html=True)
 
+
+
+
+
+    # Display the result
     ########## Display - Suggestions for Improvement
     ############################################################################to########################
     ####################################################################################################
