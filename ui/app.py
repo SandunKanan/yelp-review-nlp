@@ -77,6 +77,10 @@ table.dataframe {
     font-family: "Source Sans Pro", sans-serif;
     margin: 0 auto;
 }
+/* ---- Change the font color for expander ---- */
+.st-emotion-cache-1h9usn1 {
+    background-color: #f7f7f7;
+}
 </style>
 """,
     unsafe_allow_html=True,
@@ -102,7 +106,7 @@ with st.form(key='user_input_form'):
     col1,col2,col3 = st.columns([2,3,2])
 
     with col2:
-        name = st.text_input("Restaurant Name (e.g. Luke, Royal House, Cochon, Mother's restaurant)", max_chars=50)
+        name = st.text_input("Restaurant Name", max_chars=50)
         st.text(" ")
         st.form_submit_button(
             'Get Results',
@@ -297,7 +301,7 @@ if st.session_state["get_result"]:
     topic_weights = df_topic_allocation.groupby("topic_label", as_index=False).sum()
     topic_weights["score"] = topic_weights["score"] / df_topic_allocation["score"].sum()
     topic_weights = topic_weights.drop(columns="topic")
-    topic_weights = topic_weights.sort_values(by="score", ascending=False)
+    topic_weights = topic_weights.sort_values(by="score", ascending=False).head(15)
     st.button(
         'Get Topics',
         on_click=lambda: st.session_state.update({"get_topics": True})
@@ -305,8 +309,8 @@ if st.session_state["get_result"]:
     if st.session_state["get_topics"]:
         st.text(" ")  # add space
         st.text(" ")  # add space
-        st.subheader("Phrases Allocated Topic")
-        plt.figure(figsize=(10, 8)) # You can adjust these numbers as per your need
+        st.subheader("List of Topics")
+        plt.figure(figsize=(10, 4)) # You can adjust these numbers as per your need
         ax = sns.barplot(
             y="topic_label", 
             x="score", 
