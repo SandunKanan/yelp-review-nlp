@@ -1,7 +1,7 @@
 # Yelp Sentiment Analysis using Natural Language Processing Modelling
 
 ## Presentation Video
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ixF0VNFOFC8?si=9Yu1aBHVpBVSavlX&amp;start=3252" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+https://youtu.be/ixF0VNFOFC8?feature=shared&t=3252
 
 ## Table of contents
 - [Description](#description)
