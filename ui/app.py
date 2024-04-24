@@ -330,8 +330,8 @@ if st.session_state["get_result"]:
                  " This process is grounded in a methodical approach where, over numerous iterations, the model identifies the allocation of words to topics that best reflects the observed text."
                  " The effectiveness of LDA stems from its ability to discern the underlying themes within texts, such as ‘service quality’ or ‘atmosphere’, from seemingly unstructured data."
                  " By automatically discovering these themes, LDA provides actionable insights into large datasets.")
-        st.text(" ")  # add space
-        st.image("ui/img/lda1.png")
+        # st.text(" ")  # add space
+        # st.image("ui/img/lda1.png")
         st.text(" ")  # add space
         st.image("ui/img/lda2.png")
         st.text(" ")  # add space
