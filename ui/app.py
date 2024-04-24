@@ -388,7 +388,7 @@ if st.session_state["get_result"]:
 
     with st.expander("Show Linear Regression Explanation"):
         st.text(" ")  # add space
-        st.write(" To find which topics are having the most impact on review score, we can utilize linear regression. "
+        st.write(" To find which topics are having the most impact on review score, we can use linear regression. "
                 " This will take the appearance of each topic in all the reviews, and generate a model that will try to predict the review score of a new review, based on the presence of each."
                 " Linear regression gives us our best approximation of a simple equation that makes this prediction."
                 " The equation gives us a formula gives a coefficient, indication of how much the appearance of each topic affects review score."
