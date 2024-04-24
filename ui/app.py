@@ -12,6 +12,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 
+DEPLOYED = False
+if DEPLOYED:
+    img_folder_path = "ui/img"
+else:
+    img_folder_path = "../ui/img"
+
 st.set_page_config(layout="wide")
 
 st.markdown(
@@ -100,8 +106,7 @@ if "get_suggestions" not in st.session_state:
 ############# Display - Title / User Input ###################
 left_co,left2_co, cent_co,last2_co,last_co = st.columns([2,2,3,2,2])
 with cent_co:
-    # st.image('ui/img/logo_nlpalate_200.png', use_column_width=True, width=180)
-    st.image('../ui/img/logo_nlpalate_200.png', use_column_width=True, width=180)
+    st.image(f'{img_folder_path}/logo_nlpalate_200.png', use_column_width=True, width=180)
 
 with st.form(key='user_input_form'):
     col1,col2,col3 = st.columns([2,3,2])
@@ -289,8 +294,7 @@ if st.session_state["get_result"]:
                 "These Phrases provide no actual insight into the reasons behind the positive and negative reviews."
                 "So instead of just taking a count of the number of times these phrases appear, we can calculate a 'score' that penalizes phrases that appear across ALL reviews, "
                 "which then allows us to uncover which phrases appear more common for ONLY that restaurant.")
-        # st.image("ui/img/tf-idf.png")
-        st.image("../ui/img/tf-idf.png")
+        st.image(f"{img_folder_path}/tf-idf.png")
     st.text(" ")  # add space
     st.text(" ")  # add space
     st.text(" ")  # add space
@@ -332,11 +336,8 @@ if st.session_state["get_result"]:
                  " This process is grounded in a methodical approach where, over numerous iterations, the model identifies the allocation of words to topics that best reflects the observed text."
                  " The effectiveness of LDA stems from its ability to discern the underlying themes within texts, such as ‘service quality’ or ‘atmosphere’, from seemingly unstructured data."
                  " By automatically discovering these themes, LDA provides actionable insights into large datasets.")
-        # st.text(" ")  # add space
-        # st.image("ui/img/lda1.png")
         st.text(" ")  # add space
-        # st.image("ui/img/lda2.png")
-        st.image("../ui/img/lda2.png")
+        st.image(f"{img_folder_path}/lda2.png")
         st.text(" ")  # add space
 
     ########## Run Regression ##########
@@ -395,8 +396,7 @@ if st.session_state["get_result"]:
                 " The equation gives us a formula gives a coefficient, indication of how much the appearance of each topic affects review score."
                 " We can take this coefficient as a 'strength score' of each topic on how much they affect the final review score.")
         st.text(" ")  # add space
-        # st.image("ui/img/linear_regression.png")
-        st.image("../ui/img/linear_regression.png")
+        st.image(f"{img_folder_path}/linear_regression.png")
     ########## Get Suggestion ##########
     # get_suggestions = st.button('Get Suggestions')
 
