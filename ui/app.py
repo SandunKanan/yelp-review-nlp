@@ -213,31 +213,33 @@ if st.session_state["get_result"]:
         st.plotly_chart(fig, use_container_width=True)
 
     ########## Display - Word Clouds ##########
-    # st.header("Frequently Mentioned Keywords")
-    # col10, col11 = st.columns(2)
+    if DEPLOYED:
+        st.header("Frequently Mentioned Keywords")
+        col10, col11 = st.columns(2)
 
-    # with col10:
-    #     st.subheader("Our Restaurant")
-    #     st.set_option('deprecation.showPyplotGlobalUse', False)
-    #     wc_own_dict = df_wordcloud_filtered["own_wc_dict"].iloc[0]
-    #     wc_own_dict = ast.literal_eval(wc_own_dict)
-    #     wc_own = WordCloud(width=800,
-    #                   height=400,
-    #                   background_color='white').fit_words(wc_own_dict)
-    #     st.image(wc_own.to_array())
+        with col10:
+            st.subheader("Our Restaurant")
+            st.set_option('deprecation.showPyplotGlobalUse', False)
+            wc_own_dict = df_wordcloud_filtered["own_wc_dict"].iloc[0]
+            wc_own_dict = ast.literal_eval(wc_own_dict)
+            wc_own = WordCloud(width=800,
+                        height=400,
+                        background_color='white').fit_words(wc_own_dict)
+            st.image(wc_own.to_array())
 
-    # with col11:
-    #     st.subheader("Our Competitors")
-    #     wc_other_dict = df_wordcloud_filtered["other_wc_dict"].iloc[0]
-    #     wc_other_dict = ast.literal_eval(wc_other_dict)
-    #     wc_other = WordCloud(width=800,
-    #                   height=400,
-    #                   colormap = 'BuPu_r',
-    #                   background_color='white').fit_words(wc_other_dict)
-    #     st.image(wc_other.to_array())
+        with col11:
+            st.subheader("Our Competitors")
+            wc_other_dict = df_wordcloud_filtered["other_wc_dict"].iloc[0]
+            wc_other_dict = ast.literal_eval(wc_other_dict)
+            wc_other = WordCloud(width=800,
+                        height=400,
+                        colormap = 'BuPu_r',
+                        background_color='white').fit_words(wc_other_dict)
+            st.image(wc_other.to_array())
 
-    # st.text(" ")  # add space
-    # st.text(" ")  # add space
+        st.text(" ")  # add space
+        st.text(" ")  # add space
+        
     st.text(" ")  # add space
     st.text(" ")  # add space
     ########## Display - Top 5 Compliments / Complaints ##########
