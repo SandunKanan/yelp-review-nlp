@@ -6,7 +6,7 @@ import streamlit as st
 # import os
 from wordcloud import WordCloud
 # import matplotlib.pyplot as plt
-import openai
+# import openai
 import ast
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -283,20 +283,18 @@ if st.session_state["get_result"]:
     ########## TF-IDF Explanation ##########
 
     with st.expander("Show TF-IDF explanation"):
-        st.write("Review 1: ‘Just serves the best pancakes in town. The service is excellent and the atmosphere is cozy.’ \n\n"
-         "Review 2: ‘Just wonderful! The burgers were delicious and the staff was friendly.’ \n\n"
-         "Review 3: ‘Just mediocre food and the service was slow.’ \n\n"
-         "In ALL reviews, the word ‘just’ appears, so the weight TF-IDF assigns is zero. Conversely, ‘best pancakes’, "
-         "‘burgers delicious’, and ‘service slow’ appear in one review, so their weight will be high. "
-         "Just remember, that the word just doesn't add "
-         "any value to the reviews; it's just how people talk.")
+        st.write("We want to find the most commonly occurring phrases in positive reviews, and in negative reviews. "
+                "However when you look at the english language, the phrases or words that most commonly appear are 'and', 'We went to'. "
+                "These Phrases provide no actual insight into the reasons behind the positive and negative reviews."
+                "So instead of just taking a count of the number of times these phrases appear, we can calculate a 'score' that penalizes phrases that appear across ALL reviews, "
+                "which then allows us to uncover which phrases appear more common for ONLY that restaurant.")
         st.image("ui/img/tf-idf.png")
     st.text(" ")  # add space
     st.text(" ")  # add space
     st.text(" ")  # add space
     st.text(" ")  # add space
-    ########## Advanced Modeling ##########
-    st.header("Advanced Modeling")
+    ########## Advanced Modelling ##########
+    st.header("Advanced Modelling")
     ########## Get Topic ##########
     topic_weights = df_topic_allocation.groupby("topic_label", as_index=False).sum()
     topic_weights["score"] = topic_weights["score"] / df_topic_allocation["score"].sum()
