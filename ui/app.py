@@ -40,12 +40,12 @@ margin: 0 auto;
 
 /* ---- Header ---- */
 .stTextInput > div > div {
-    padding: 10px; 
+    padding: 10px;
 }
 
 .stButton > .st-emotion-cache-7ym5gk {
-    width: 100%; 
-    padding: 10px; 
+    width: 100%;
+    padding: 10px;
 }
 .st-emotion-cache-r421ms {
 border: none;
@@ -166,7 +166,7 @@ if st.session_state["get_result"]:
     st.header("Review Summary")
     col3, col4, col5 = st.columns(3)
     with col3:
-        
+
         fig = go.Figure(go.Indicator(
             mode="gauge+number",
             value=average_reviews,
@@ -209,7 +209,7 @@ if st.session_state["get_result"]:
     ########## Display - Word Clouds ##########
     st.header("Frequently Mentioned Keywords")
     col10, col11 = st.columns(2)
-    
+
     with col10:
         st.subheader("Our Restaurant")
         st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -305,16 +305,16 @@ if st.session_state["get_result"]:
     st.button(
         'Get Topics',
         on_click=lambda: st.session_state.update({"get_topics": True})
-    ) 
+    )
     if st.session_state["get_topics"]:
         st.text(" ")  # add space
         st.text(" ")  # add space
         st.subheader("List of Topics")
         plt.figure(figsize=(10, 4)) # You can adjust these numbers as per your need
         ax = sns.barplot(
-            y="topic_label", 
-            x="score", 
-            data=topic_weights, 
+            y="topic_label",
+            x="score",
+            data=topic_weights,
             palette="Greens_d"
         )
         ax.tick_params(axis='y', labelsize=10)  # Adjust the size as per your need
@@ -327,13 +327,13 @@ if st.session_state["get_result"]:
         st.text(" ")  # add space
     with st.expander("Show Topic Modelling (LDA) explanation"):
         st.text(" ")  # add space
-        st.write("Latent Dirichlet Allocation (LDA) is an advanced technique used to categorize words into topics." 
+        st.write("Latent Dirichlet Allocation (LDA) is an advanced technique used to categorize words into topics."
                  "Initially, words present in text are randomly assigned to topics, and through iterative adjustments, LDA seeks to predict the composition of the original document accurately."
                  " This process is grounded in a methodical approach where, over numerous iterations, the model identifies the allocation of words to topics that best reflects the observed text."
                  " The effectiveness of LDA stems from its ability to discern the underlying themes within texts, such as ‘service quality’ or ‘atmosphere’, from seemingly unstructured data."
                  " By automatically discovering these themes, LDA provides actionable insights into large datasets.")
-        st.text(" ")  # add space
-        st.image("ui/img/lda1.png")
+        # st.text(" ")  # add space
+        # st.image("ui/img/lda1.png")
         st.text(" ")  # add space
         st.image("ui/img/lda2.png")
         st.text(" ")  # add space
@@ -361,7 +361,7 @@ if st.session_state["get_result"]:
         'Run Regression',
         on_click=lambda: st.session_state.update({"run_regression": True})
 
-    ) 
+    )
     if st.session_state["run_regression"]:
         # st.markdown(f"""
         #         <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
@@ -409,7 +409,7 @@ if st.session_state["get_result"]:
         'Get Suggestions',
         on_click=lambda: st.session_state.update({"get_suggestions": True})
 
-    ) 
+    )
     if st.session_state["get_suggestions"]:
         st.markdown(f"""
                 <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
@@ -462,9 +462,7 @@ if st.session_state["get_result"]:
     # """, unsafe_allow_html=True)
     # st.write(f"{df_business_filtered['ai_suggestion'].iloc[0]}")
 
-    
- 
-    ####################################################################################################
-    ####################################################################################################
 
 
+    ####################################################################################################
+    ####################################################################################################
