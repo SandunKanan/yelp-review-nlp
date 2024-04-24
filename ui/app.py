@@ -4,10 +4,10 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
 # import os
-from wordcloud import WordCloud
+# from wordcloud import WordCloud
 # import matplotlib.pyplot as plt
 # import openai
-import ast
+# import ast
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
@@ -100,7 +100,8 @@ if "get_suggestions" not in st.session_state:
 ############# Display - Title / User Input ###################
 left_co,left2_co, cent_co,last2_co,last_co = st.columns([2,2,3,2,2])
 with cent_co:
-    st.image('ui/img/logo_nlpalate_200.png', use_column_width=True, width=180)
+    # st.image('ui/img/logo_nlpalate_200.png', use_column_width=True, width=180)
+    st.image('../ui/img/logo_nlpalate_200.png', use_column_width=True, width=180)
 
 with st.form(key='user_input_form'):
     col1,col2,col3 = st.columns([2,3,2])
@@ -207,31 +208,31 @@ if st.session_state["get_result"]:
         st.plotly_chart(fig, use_container_width=True)
 
     ########## Display - Word Clouds ##########
-    st.header("Frequently Mentioned Keywords")
-    col10, col11 = st.columns(2)
+    # st.header("Frequently Mentioned Keywords")
+    # col10, col11 = st.columns(2)
 
-    with col10:
-        st.subheader("Our Restaurant")
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        wc_own_dict = df_wordcloud_filtered["own_wc_dict"].iloc[0]
-        wc_own_dict = ast.literal_eval(wc_own_dict)
-        wc_own = WordCloud(width=800,
-                      height=400,
-                      background_color='white').fit_words(wc_own_dict)
-        st.image(wc_own.to_array())
+    # with col10:
+    #     st.subheader("Our Restaurant")
+    #     st.set_option('deprecation.showPyplotGlobalUse', False)
+    #     wc_own_dict = df_wordcloud_filtered["own_wc_dict"].iloc[0]
+    #     wc_own_dict = ast.literal_eval(wc_own_dict)
+    #     wc_own = WordCloud(width=800,
+    #                   height=400,
+    #                   background_color='white').fit_words(wc_own_dict)
+    #     st.image(wc_own.to_array())
 
-    with col11:
-        st.subheader("Our Competitors")
-        wc_other_dict = df_wordcloud_filtered["other_wc_dict"].iloc[0]
-        wc_other_dict = ast.literal_eval(wc_other_dict)
-        wc_other = WordCloud(width=800,
-                      height=400,
-                      colormap = 'BuPu_r',
-                      background_color='white').fit_words(wc_other_dict)
-        st.image(wc_other.to_array())
+    # with col11:
+    #     st.subheader("Our Competitors")
+    #     wc_other_dict = df_wordcloud_filtered["other_wc_dict"].iloc[0]
+    #     wc_other_dict = ast.literal_eval(wc_other_dict)
+    #     wc_other = WordCloud(width=800,
+    #                   height=400,
+    #                   colormap = 'BuPu_r',
+    #                   background_color='white').fit_words(wc_other_dict)
+    #     st.image(wc_other.to_array())
 
-    st.text(" ")  # add space
-    st.text(" ")  # add space
+    # st.text(" ")  # add space
+    # st.text(" ")  # add space
     st.text(" ")  # add space
     st.text(" ")  # add space
     ########## Display - Top 5 Compliments / Complaints ##########
@@ -288,7 +289,8 @@ if st.session_state["get_result"]:
                 "These Phrases provide no actual insight into the reasons behind the positive and negative reviews."
                 "So instead of just taking a count of the number of times these phrases appear, we can calculate a 'score' that penalizes phrases that appear across ALL reviews, "
                 "which then allows us to uncover which phrases appear more common for ONLY that restaurant.")
-        st.image("ui/img/tf-idf.png")
+        # st.image("ui/img/tf-idf.png")
+        st.image("../ui/img/tf-idf.png")
     st.text(" ")  # add space
     st.text(" ")  # add space
     st.text(" ")  # add space
@@ -333,7 +335,8 @@ if st.session_state["get_result"]:
         # st.text(" ")  # add space
         # st.image("ui/img/lda1.png")
         st.text(" ")  # add space
-        st.image("ui/img/lda2.png")
+        # st.image("ui/img/lda2.png")
+        st.image("../ui/img/lda2.png")
         st.text(" ")  # add space
 
     ########## Run Regression ##########
@@ -392,7 +395,8 @@ if st.session_state["get_result"]:
                 " The equation gives us a formula gives a coefficient, indication of how much the appearance of each topic affects review score."
                 " We can take this coefficient as a 'strength score' of each topic on how much they affect the final review score.")
         st.text(" ")  # add space
-        st.image("ui/img/linear_regression.png")
+        # st.image("ui/img/linear_regression.png")
+        st.image("../ui/img/linear_regression.png")
     ########## Get Suggestion ##########
     # get_suggestions = st.button('Get Suggestions')
 
