@@ -1,4 +1,4 @@
-# Yelp Sentiment Analysis using Natural Language Processing Modelling
+# Yelp Sentiment Analysis using Natural Language Processing
 
 ### Website
 [NLPalate](https://yelp-nlpalate.streamlit.app/)
