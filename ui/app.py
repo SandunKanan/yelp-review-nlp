@@ -81,7 +81,7 @@ table.dataframe {
 }
 /* ---- Change the font color for expander ---- */
 .st-emotion-cache-1h9usn1 {
-    background-color: #f7f7f7;
+    background-color: #f2f2f2;
 }
 </style>
 """,
