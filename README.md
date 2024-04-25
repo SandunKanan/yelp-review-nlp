@@ -1,9 +1,14 @@
 # Yelp Sentiment Analysis using Natural Language Processing Modelling
 
-## Presentation Video
-https://youtu.be/ixF0VNFOFC8?feature=shared&t=3252
+### Website
+[NLPalate](https://yelp-nlpalate.streamlit.app/)
 
+### Presentation Video
+https://youtu.be/ixF0VNFOFC8?feature=shared&t=3252
 This project was presented as a final Data Science & AI project for LeWagon Tokyo's Demo day, for the graduating cohort of March 2024
+
+### Project Presentation
+[View GoogleSlides Presentation](https://docs.google.com/presentation/d/1Dd6LnDLeSySS5ePxq6UU9FqNN78-lAZCRejmnD34oHk/edit?usp=sharing)
 
 ## Table of contents
 - [Description](#description)
@@ -13,9 +18,7 @@ This project was presented as a final Data Science & AI project for LeWagon Toky
   - [Development Environment](#development-environment)
   - [APIs and External Services](#apis-and-external-services)
   - [Frontend](#frontend)
-- [Project Presentation](#project-presentation)
 - [Key Features of NLPalate](#key-features-of-nlpalate)
-- [Web App Demo](#web-app-demo)
 - [Installation Instructions](#installation-instructions)
 - [Limitations](#limitations)
   - [Scope of Data](#scope-of-data)
@@ -58,9 +61,6 @@ This project leverages a variety of technologies, libraries, and tools focused o
 ### Frontend:
 - **Streamlit:** Employed a user-friendly interface for interacting with the backend models, facilitating real-time input and feedback from users.
 
-## Project Presentation
-[View GoogleSlides Presentation](https://docs.google.com/presentation/d/1Dd6LnDLeSySS5ePxq6UU9FqNN78-lAZCRejmnD34oHk/edit?usp=sharing)
-
 ## Key Features of NLPalate
 - Displaying an overview of key metrics (total number of reviews, restaurant's average review score, average review score of competitors within 10-mile radius) 
 - Generating WordClouds of frequently-mentioned keywords in reviews of reference's restaurant compared with competitors within the same categories in the same city using unsupervised learning algorithm -- term frequency–inverse document frequency (tf-idf)
@@ -68,9 +68,6 @@ This project leverages a variety of technologies, libraries, and tools focused o
 - Finding the 30 most prevalent topics in all reviews, through topic modelling using Latent Dirichlect Allocation (LDA), and unsupervised machine learning algorithm
 - Performing Linear regression to map which topics and having the biggest impact on a restaurant's review score
 - Aiding restaurant owners by providing focused and easily digestible recommendations/ suggestions based on the issues/ complaints they received using OpenAI's API
-
-## Web App Demo
-[NLPalate](https://nlpalate.streamlit.app/)
 
 ## Installation instructions
 To get this project up and running on your local machine, follow these steps. These instructions assume you have Python 3.10.6 installed. If not, please install Python from python.org first.
