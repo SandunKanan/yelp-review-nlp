@@ -4,7 +4,7 @@
 [NLPalate](https://yelp-nlpalate.streamlit.app/)
 
 ### Presentation Video
-https://youtu.be/ixF0VNFOFC8?feature=shared&t=3252
+https://youtu.be/ixF0VNFOFC8?feature=shared&t=3252  
 This project was presented as a final Data Science & AI project for LeWagon Tokyo's Demo day, for the graduating cohort of March 2024
 
 ### Project Presentation
