@@ -9,7 +9,9 @@ This project was presented as a final Data Science & AI project for LeWagon Toky
 
 ### Project Presentation
 [View GoogleSlides Presentation](https://docs.google.com/presentation/d/1Dd6LnDLeSySS5ePxq6UU9FqNN78-lAZCRejmnD34oHk/edit?usp=sharing)
-##
+<br/>
+<br/>
+<br/>
 # Project Documentation
 ## Table of contents
 - [Description](#description)
