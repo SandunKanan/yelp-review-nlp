@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 import streamlit as st
 # import os
-# from wordcloud import WordCloud
+
 # import matplotlib.pyplot as plt
 # import openai
 # import ast
@@ -13,10 +13,7 @@ import seaborn as sns
 import plotly.graph_objects as go
 
 DEPLOYED = False
-if DEPLOYED:
-    img_folder_path = "ui/img"
-else:
-    img_folder_path = "../ui/img"
+img_folder_path = "ui/img"
 
 st.set_page_config(layout="wide")
 
@@ -214,6 +211,7 @@ if st.session_state["get_result"]:
 
     ########## Display - Word Clouds ##########
     if DEPLOYED:
+        from wordcloud import WordCloud
         st.header("Frequently Mentioned Keywords")
         col10, col11 = st.columns(2)
 
@@ -239,7 +237,7 @@ if st.session_state["get_result"]:
 
         st.text(" ")  # add space
         st.text(" ")  # add space
-        
+
     st.text(" ")  # add space
     st.text(" ")  # add space
     ########## Display - Top 5 Compliments / Complaints ##########
