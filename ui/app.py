@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 
-DEPLOYED = False
+DEPLOYED = True
 img_folder_path = "ui/img"
 
 st.set_page_config(layout="wide")
