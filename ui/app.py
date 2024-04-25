@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 
-DEPLOYED = True
+DEPLOYED = False
 img_folder_path = "ui/img"
 
 st.set_page_config(layout="wide")
@@ -115,7 +115,7 @@ with st.form(key='user_input_form'):
             on_click=lambda: st.session_state.update({"get_result": True})
         )
         st.text("Due to storage limitations, our application is currently")
-        st.text("limited to restaurants only in New Orleans.")
+        st.text("limited to restaurants in New Orleans.")
         st.text("For a demo, try 'Luke' or 'Mother's Restaurant'.")
 
 # Read CSV
@@ -175,7 +175,9 @@ if st.session_state["get_result"]:
             mode="gauge+number",
             value=average_reviews,
             domain={'x': [0, 1], 'y': [0, 1]},
-            title={'text': "Average Review Scores"},
+            title={'text': f"Average Review Score for {name}",
+                    'font': {'size': 18} # Adjust the size as needed},
+            },
             gauge={'axis': {'range': [None, 5]}, 'bar': {'color': "#7d8beb"}},
             number={'font': {'color': "rgb(34, 34, 34)"}}  # Set number font color to black and adjust size as needed
         ))
