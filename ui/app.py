@@ -7,7 +7,6 @@ import streamlit as st
 
 # import matplotlib.pyplot as plt
 # import openai
-# import ast
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
@@ -109,12 +108,14 @@ with st.form(key='user_input_form'):
     col1,col2,col3 = st.columns([2,3,2])
 
     with col2:
-        name = st.text_input("Restaurant Name", max_chars=50)
+        name = st.text_input("Restaurant Name.", max_chars=50)
         st.text(" ")
         st.form_submit_button(
             'Get Results',
             on_click=lambda: st.session_state.update({"get_result": True})
         )
+        st.text("Our application is currently limited to only restaurants in New Orleans.")
+        st.text("For a demo, try 'Luke' or 'Mother's Restaurant'.")
 
 # Read CSV
 df_review = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_review_top10.csv')
@@ -130,7 +131,6 @@ df_topic_allocation = pd.read_csv('https://storage.googleapis.com/yelp_review_nl
 
 
 # Display the result
-
 df_get_topics = df_get_topics[['topic_label', 'phrase', 'score']]
 df_get_topics = df_get_topics.rename(columns={'topic_label': 'Topic', 'phrase': 'Phrase', 'score': 'Score'})
 
@@ -212,6 +212,7 @@ if st.session_state["get_result"]:
     ########## Display - Word Clouds ##########
     if DEPLOYED:
         from wordcloud import WordCloud
+        import ast
         st.header("Frequently Mentioned Keywords")
         col10, col11 = st.columns(2)
 
@@ -243,11 +244,11 @@ if st.session_state["get_result"]:
     ########## Display - Top 5 Compliments / Complaints ##########
     col6, col7 = st.columns(2)
     with col6:
-        st.header("Top 5 Praises")
+        st.header("Top 5 Compliments")
         top_praises = df_example_filtered.nlargest(5, 'praise_coeff')
         fig, ax = plt.subplots()
         sns.barplot(x='praise_coeff', y='praise_words', data=top_praises, ax=ax, palette="Blues_d")
-        plt.xlabel('Praise Score')
+        plt.xlabel('Compliment Score')
         ax.set_ylabel('')  # Removes the y-axis label
         st.pyplot(fig)
 
@@ -265,7 +266,7 @@ if st.session_state["get_result"]:
     st.text(" ")  # add space
     col8, col9 = st.columns(2)
     with col8:
-        st.header("Praise Examples")
+        st.header("Compliment Examples")
         df_example_filtered_praise_order = df_example_filtered.nlargest(5, 'praise_coeff')
 
         for index, row in df_example_filtered_praise_order.iterrows():
@@ -413,6 +414,16 @@ if st.session_state["get_result"]:
                 </div>
                 """, unsafe_allow_html=True)
 
+
+    with st.expander("Querying OpenAI for Suggestions"):
+        st.text(" ")  # add space
+        st.write("""To provide business owners with what improvements can actually
+                 be made to improve their restaurant's reviews, we use a plugin to OpenAI's API.
+                 We send all the above information, as will as a specially tailored prompt to query the engine.
+                 ChatGPT reads the provided data and prompts,
+                 and provides a summary in a more natural, easy to digest format.""")
+        st.text(" ")  # add space
+        st.image(f"{img_folder_path}/openai_logo.png", width = 400)
 
 
 
