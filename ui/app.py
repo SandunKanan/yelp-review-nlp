@@ -114,7 +114,8 @@ with st.form(key='user_input_form'):
             'Get Results',
             on_click=lambda: st.session_state.update({"get_result": True})
         )
-        st.text("Our application is currently limited to only restaurants in New Orleans.")
+        st.text("Due to storage limitations, our application is currently")
+        st.text("limited to restaurants only in New Orleans.")
         st.text("For a demo, try 'Luke' or 'Mother's Restaurant'.")
 
 # Read CSV
