@@ -335,8 +335,8 @@ if st.session_state["get_result"]:
         st.text(" ")  # add space
 
     st.text(" ")
-    st.text(""" For more in depth insights, we can use machine learning to extract just 30 topics from all 500,000 reviews in our dataset. This way, our insights are more
-            generallly applicable""")
+    st.text(""" For more in depth insights, we can use machine learning to extract just 30 topics from all 500,000 reviews in our dataset. This way, our insights are
+more generallly applicable""")
 
     with st.expander("Show Topic Modelling (LDA) explanation"):
         st.text(" ")  # add space
