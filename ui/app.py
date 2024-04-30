@@ -294,10 +294,10 @@ if st.session_state["get_result"]:
 
     with st.expander("Show TF-IDF explanation"):
         st.write("We want to find the most commonly occurring phrases in positive reviews, and in negative reviews. "
-                "However when you look at the english language, the phrases or words that most commonly appear are 'and', 'We went to'. "
-                "These Phrases provide no actual insight into the reasons behind the positive and negative reviews."
-                "So instead of just taking a count of the number of times these phrases appear, we can calculate a 'score' that penalizes phrases that appear across ALL reviews, "
-                "which then allows us to uncover which phrases appear more common for ONLY that restaurant.")
+                " However when you look at the english language, the phrases or words that most commonly appear are 'and', 'We went to'. "
+                " These Phrases provide no actual insight into the reasons behind the positive and negative reviews."
+                " So instead of just taking a count of the number of times these phrases appear, we can calculate a 'score' that penalizes phrases that appear across ALL reviews, "
+                " which then allows us to uncover which phrases appear more common for ONLY that restaurant.")
         st.image(f"{img_folder_path}/tf-idf.png")
     st.text(" ")  # add space
     st.text(" ")  # add space
@@ -305,6 +305,9 @@ if st.session_state["get_result"]:
     st.text(" ")  # add space
     ########## Advanced Modelling ##########
     st.header("Advanced Modelling")
+    st.text(" ")
+    st.text(""" For more in depth insights, we can use machine learning to extract just 30 topics from all
+                500,000 reviews in our dataset. This way, our insights are more generally applicable""")
     ########## Get Topic ##########
     topic_weights = df_topic_allocation.groupby("topic_label", as_index=False).sum()
     topic_weights["score"] = topic_weights["score"] / df_topic_allocation["score"].sum()
@@ -336,7 +339,7 @@ if st.session_state["get_result"]:
     with st.expander("Show Topic Modelling (LDA) explanation"):
         st.text(" ")  # add space
         st.write("Latent Dirichlet Allocation (LDA) is an advanced technique used to categorize words into topics."
-                 "Initially, words present in text are randomly assigned to topics, and through iterative adjustments, LDA seeks to predict the composition of the original document accurately."
+                 " Initially, words present in text are randomly assigned to topics, and through iterative adjustments, LDA seeks to predict the composition of the original document accurately."
                  " This process is grounded in a methodical approach where, over numerous iterations, the model identifies the allocation of words to topics that best reflects the observed text."
                  " The effectiveness of LDA stems from its ability to discern the underlying themes within texts, such as ‘service quality’ or ‘atmosphere’, from seemingly unstructured data."
                  " By automatically discovering these themes, LDA provides actionable insights into large datasets.")
@@ -364,7 +367,7 @@ if st.session_state["get_result"]:
     ##################################################################################################################
     ##################################################################################################################
     st.button(
-        'Run Regression',
+        'Run Regression on Topics',
         on_click=lambda: st.session_state.update({"run_regression": True})
 
     )
