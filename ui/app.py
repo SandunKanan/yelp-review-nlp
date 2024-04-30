@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.graph_objects as go
 
-DEPLOYED = True
+DEPLOYED = False
 img_folder_path = "ui/img"
 
 st.set_page_config(layout="wide")
@@ -114,7 +114,7 @@ with st.form(key='user_input_form'):
             'Get Results',
             on_click=lambda: st.session_state.update({"get_result": True})
         )
-        st.text("Due to storage limitations, our application is currently")
+        st.text("Due to storage limitations, application is currently")
         st.text("limited to restaurants in New Orleans.")
         st.text("For a demo, try 'Luke' or 'Mother's Restaurant'.")
 
@@ -305,9 +305,6 @@ if st.session_state["get_result"]:
     st.text(" ")  # add space
     ########## Advanced Modelling ##########
     st.header("Advanced Modelling")
-    st.text(" ")
-    st.text(""" For more in depth insights, we can use machine learning to extract just 30 topics from all
-                500,000 reviews in our dataset. This way, our insights are more generally applicable""")
     ########## Get Topic ##########
     topic_weights = df_topic_allocation.groupby("topic_label", as_index=False).sum()
     topic_weights["score"] = topic_weights["score"] / df_topic_allocation["score"].sum()
@@ -336,6 +333,10 @@ if st.session_state["get_result"]:
         st.pyplot(plt)
         st.text(" ")  # add space
         st.text(" ")  # add space
+
+    st.text(" ")
+    st.text(""" For more in depth insights, we can use machine learning to extract just 30 topics from all 500,000 reviews in our dataset. This way, our insights are more generalizable""")
+
     with st.expander("Show Topic Modelling (LDA) explanation"):
         st.text(" ")  # add space
         st.write("Latent Dirichlet Allocation (LDA) is an advanced technique used to categorize words into topics."
