@@ -1,0 +1,21 @@
+phrase,score,topic,topic_label
+customer service,192.94528218457043,0,Customer Service Experience
+feel like,102.1882084273905,0,Customer Service Experience
+bar,96.14860190662226,1,Bar Atmosphere
+saturday night,64.44366718425711,1,Bar Atmosphere
+waste time,71.2763354073284,2,Mediocre Food
+food average,65.7328448731005,2,Mediocre Food
+not worth,199.38284562406477,3,Lacking Value
+good not great,91.64362780735264,3,Lacking Value
+service slow,48.52607223161497,4,New Orleans Culture
+taste of new orleans,42.15885849443209,4,New Orleans Culture
+long wait,104.4373203021533,5,Long Waits
+minutes,90.85287583502686,5,Long Waits
+quality of food,133.16581209243418,6,Food Quality
+dining experience,99.47931493659917,6,Food Quality
+shrimp grits,180.49511988271365,7,Southern Dishes
+bread pudding,105.95866137579466,7,Southern Dishes
+po boy,239.77821226812495,8,Shrimp Po' Boy
+fried shrimp,58.556339673252104,8,Shrimp Po' Boy
+never go back,76.81943055898077,9,Returning Doubtful
+too long,51.51271402350041,9,Returning Doubtful
