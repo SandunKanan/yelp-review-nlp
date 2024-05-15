@@ -1,11 +1,11 @@
-business_id,stars,name,review_count,categories,avg_stars10m_radius
-GBTPC53ZrG1ZBY3DT8Mbcw,4.0,Luke,4554,"German, Restaurants, Seafood, Cocktail Bars, French, Brasseries, American (New), Nightlife, Bars, Cajun/Creole, Breakfast & Brunch",4.058139534883721
-VQcCL9PiNL_wkGf-uF3fjg,4.0,Royal House,5070,"American (New), Restaurants, Sandwiches, Seafood, Cajun/Creole",4.058139534883721
-_C7QiQQc47AOEv4PE3Kong,4.5,Commander's Palace,4876,"French, Restaurants, Cocktail Bars, Nightlife, American (New), Cajun/Creole, Breakfast & Brunch, American (Traditional), Bars",4.058139534883721
-qb28j-FNX1_6xm7u372TZA,4.0,Gumbo Shop,3902,"Cajun/Creole, Seafood, Restaurants",4.058139534883721
-VaO-VW3e1kARkU9bP1E7Fw,4.0,Felix's Restaurant & Oyster Bar,3966,"Restaurants, Sandwiches, Seafood, Cajun/Creole",4.058139534883721
-6a4gLLFSgr-Q6CZXDLzBGQ,4.0,Cochon,4421,"Cajun/Creole, Seafood, Restaurants",4.058139534883721
-iSRTaT9WngzB8JJ2YKJUig,3.5,Mother's Restaurant,5185,"Cajun/Creole, Restaurants, Event Planning & Services, Southern, Specialty Food, Soul Food, Food, Ethnic Food, American (New), Caterers, Breakfast & Brunch, Sandwiches",4.058139534883721
-ac1AeYqs8Z4_e2X5M3if2A,4.0,Oceana Grill,7400,"Restaurants, Seafood, Cajun/Creole, Breakfast & Brunch",4.058139534883721
-_ab50qdWOk0DdB6XOrBitw,4.0,Acme Oyster House,7568,"Live/Raw Food, Seafood, Restaurants, Cajun/Creole",4.058139534883721
-oBNrLz4EDhiscSlbOl8uAw,4.5,Ruby Slipper - New Orleans,5193,"Restaurants, American (Traditional), American (New), Cafes, Breakfast & Brunch",4.058139534883721
+business_id,stars,name,review_count,categories,avg_stars10m_radius,ai_suggestion
+GBTPC53ZrG1ZBY3DT8Mbcw,4.0,Luke,4554,"German, Restaurants, Seafood, Cocktail Bars, French, Brasseries, American (New), Nightlife, Bars, Cajun/Creole, Breakfast & Brunch",4.058139534883721,"Based on the Yelp reviews for restaurant Luke, there"
+VQcCL9PiNL_wkGf-uF3fjg,4.0,Royal House,5070,"American (New), Restaurants, Sandwiches, Seafood, Cajun/Creole",4.058139534883721,Based on the extracted data from Yelp reviews for Royal
+_C7QiQQc47AOEv4PE3Kong,4.5,Commander's Palace,4876,"French, Restaurants, Cocktail Bars, Nightlife, American (New), Cajun/Creole, Breakfast & Brunch, American (Traditional), Bars",4.058139534883721,Based on the provided Yelp reviews for Commander's Palace
+qb28j-FNX1_6xm7u372TZA,4.0,Gumbo Shop,3902,"Cajun/Creole, Seafood, Restaurants",4.058139534883721,Based on the extracted data from Yelp reviews for G
+VaO-VW3e1kARkU9bP1E7Fw,4.0,Felix's Restaurant & Oyster Bar,3966,"Restaurants, Sandwiches, Seafood, Cajun/Creole",4.058139534883721,Based on the extracted data from Yelp reviews for Felix
+6a4gLLFSgr-Q6CZXDLzBGQ,4.0,Cochon,4421,"Cajun/Creole, Seafood, Restaurants",4.058139534883721,Based on the customer feedback for the restaurant Cochon
+iSRTaT9WngzB8JJ2YKJUig,3.5,Mother's Restaurant,5185,"Cajun/Creole, Restaurants, Event Planning & Services, Southern, Specialty Food, Soul Food, Food, Ethnic Food, American (New), Caterers, Breakfast & Brunch, Sandwiches",4.058139534883721,Based on the extracted data from Yelp reviews for Mother
+ac1AeYqs8Z4_e2X5M3if2A,4.0,Oceana Grill,7400,"Restaurants, Seafood, Cajun/Creole, Breakfast & Brunch",4.058139534883721,Based on the provided Yelp reviews for Oceana
+_ab50qdWOk0DdB6XOrBitw,4.0,Acme Oyster House,7568,"Live/Raw Food, Seafood, Restaurants, Cajun/Creole",4.058139534883721,Based on the analysis of the feedback provided for Ac
+oBNrLz4EDhiscSlbOl8uAw,4.5,Ruby Slipper - New Orleans,5193,"Restaurants, American (Traditional), American (New), Cafes, Breakfast & Brunch",4.058139534883721,Based on the provided data extracted from Yelp reviews for
