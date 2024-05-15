@@ -119,15 +119,15 @@ with st.form(key='user_input_form'):
         st.text("For a demo, try 'Luke' or 'Mother's Restaurant'.")
 
 # Read CSV
-df_review = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_review_top10.csv')
-df_business = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_business2_top10.csv')
-df_praise = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_praise_top10.csv')
-df_complaint = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_complaint_top10.csv')
-df_wordcloud = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_wordcloud_top10.csv')
-df_example = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_example_top_10_b.csv')
-df_lda = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_coefficients_lda.csv')
-df_get_topics = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_get_topics2.csv')
-df_topic_allocation = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_topic_allocation_with_labels.csv')
+df_review = pd.read_csv('data/df_review_top10.csv')
+df_business = pd.read_csv('data/df_business2_top10.csv')
+df_praise = pd.read_csv('data/df_praise_top10.csv')
+df_complaint = pd.read_csv('data/df_complaint_top10.csv')
+df_wordcloud = pd.read_csv('data/df_wordcloud_top10.csv')
+df_example = pd.read_csv('data/df_example_top_10_b.csv')
+df_lda = pd.read_csv('data/df_coefficients_lda.csv')
+df_get_topics = pd.read_csv('data/df_get_topics2.csv')
+df_topic_allocation = pd.read_csv('data/df_topic_allocation_with_labels.csv')
 
 
 
@@ -477,9 +477,3 @@ if st.session_state["get_result"]:
     #     <p>By focusing on these key areas, the restaurant can address the most pressing concerns of its patrons, potentially leading to higher satisfaction and repeat business.</p>
     #     </div>
     # """, unsafe_allow_html=True)
-    # st.write(f"{df_business_filtered['ai_suggestion'].iloc[0]}")
-
-
-
-    ####################################################################################################
-    ####################################################################################################
