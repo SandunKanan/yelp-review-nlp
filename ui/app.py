@@ -474,4 +474,3 @@ more generallly applicable""")
     #     <p>By focusing on these key areas, the restaurant can address the most pressing concerns of its patrons, potentially leading to higher satisfaction and repeat business.</p>
     #     </div>
     # """, unsafe_allow_html=True)
-    # st.write(f"{df_business_filtered['ai_suggestion'].iloc[0]}")
