@@ -40,12 +40,12 @@ margin: 0 auto;
 
 /* ---- Header ---- */
 .stTextInput > div > div {
-    padding: 10px; 
+    padding: 10px;
 }
 
 .stButton > .st-emotion-cache-7ym5gk {
-    width: 100%; 
-    padding: 10px; 
+    width: 100%;
+    padding: 10px;
 }
 .st-emotion-cache-r421ms {
 border: none;
@@ -114,17 +114,15 @@ with st.form(key='user_input_form'):
         )
 
 # Read CSV
-df_review = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_review_top10.csv')
-df_business = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_business2_top10.csv')
-df_praise = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_praise_top10.csv')
-df_complaint = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_complaint_top10.csv')
-df_wordcloud = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_wordcloud_top10.csv')
-df_example = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_example_top_10_b.csv')
-df_lda = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_coefficients_lda.csv')
-df_get_topics = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_get_topics2.csv')
-df_topic_allocation = pd.read_csv('https://storage.googleapis.com/yelp_review_nlp/df_topic_allocation_with_labels.csv')
-
-
+df_review = pd.read_csv('data/df_review_top10.csv')
+df_business = pd.read_csv('data/df_business2_top10.csv')
+df_praise = pd.read_csv('data/df_praise_top10.csv')
+df_complaint = pd.read_csv('data/df_complaint_top10.csv')
+df_wordcloud = pd.read_csv('data/df_wordcloud_top10.csv')
+df_example = pd.read_csv('data/df_example_top_10_b.csv')
+df_lda = pd.read_csv('data/df_coefficients_lda.csv')
+df_get_topics = pd.read_csv('data/df_get_topics2.csv')
+df_topic_allocation = pd.read_csv('data/df_topic_allocation_with_labels.csv')
 
 # Display the result
 
@@ -166,7 +164,7 @@ if st.session_state["get_result"]:
     st.header("Review Summary")
     col3, col4, col5 = st.columns(3)
     with col3:
-        
+
         fig = go.Figure(go.Indicator(
             mode="gauge+number",
             value=average_reviews,
@@ -209,7 +207,7 @@ if st.session_state["get_result"]:
     ########## Display - Word Clouds ##########
     st.header("Frequently Mentioned Keywords")
     col10, col11 = st.columns(2)
-    
+
     with col10:
         st.subheader("Our Restaurant")
         st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -305,16 +303,16 @@ if st.session_state["get_result"]:
     st.button(
         'Get Topics',
         on_click=lambda: st.session_state.update({"get_topics": True})
-    ) 
+    )
     if st.session_state["get_topics"]:
         st.text(" ")  # add space
         st.text(" ")  # add space
         st.subheader("List of Topics")
         plt.figure(figsize=(10, 4)) # You can adjust these numbers as per your need
         ax = sns.barplot(
-            y="topic_label", 
-            x="score", 
-            data=topic_weights, 
+            y="topic_label",
+            x="score",
+            data=topic_weights,
             palette="Greens_d"
         )
         ax.tick_params(axis='y', labelsize=10)  # Adjust the size as per your need
@@ -327,7 +325,7 @@ if st.session_state["get_result"]:
         st.text(" ")  # add space
     with st.expander("Show Topic Modelling (LDA) explanation"):
         st.text(" ")  # add space
-        st.write("Latent Dirichlet Allocation (LDA) is an advanced technique used to categorize words into topics." 
+        st.write("Latent Dirichlet Allocation (LDA) is an advanced technique used to categorize words into topics."
                  "Initially, words present in text are randomly assigned to topics, and through iterative adjustments, LDA seeks to predict the composition of the original document accurately."
                  " This process is grounded in a methodical approach where, over numerous iterations, the model identifies the allocation of words to topics that best reflects the observed text."
                  " The effectiveness of LDA stems from its ability to discern the underlying themes within texts, such as ‘service quality’ or ‘atmosphere’, from seemingly unstructured data."
@@ -361,7 +359,7 @@ if st.session_state["get_result"]:
         'Run Regression',
         on_click=lambda: st.session_state.update({"run_regression": True})
 
-    ) 
+    )
     if st.session_state["run_regression"]:
         # st.markdown(f"""
         #         <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
@@ -409,7 +407,7 @@ if st.session_state["get_result"]:
         'Get Suggestions',
         on_click=lambda: st.session_state.update({"get_suggestions": True})
 
-    ) 
+    )
     if st.session_state["get_suggestions"]:
         st.markdown(f"""
                 <div style="background-color: rgb(240, 242, 246); border-radius: 10px; padding: 20px; margin: 10px 0;">
@@ -462,9 +460,7 @@ if st.session_state["get_result"]:
     # """, unsafe_allow_html=True)
     # st.write(f"{df_business_filtered['ai_suggestion'].iloc[0]}")
 
-    
- 
-    ####################################################################################################
-    ####################################################################################################
 
 
+    ####################################################################################################
+    ####################################################################################################

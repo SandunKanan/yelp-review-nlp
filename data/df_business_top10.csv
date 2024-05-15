@@ -1,11 +1,163 @@
 business_id,stars,name,review_count,categories,avg_stars10m_radius,ai_suggestion
-GBTPC53ZrG1ZBY3DT8Mbcw,4.0,Luke,4554,"German, Restaurants, Seafood, Cocktail Bars, French, Brasseries, American (New), Nightlife, Bars, Cajun/Creole, Breakfast & Brunch",4.058139534883721,"Based on the Yelp reviews for restaurant Luke, there"
-VQcCL9PiNL_wkGf-uF3fjg,4.0,Royal House,5070,"American (New), Restaurants, Sandwiches, Seafood, Cajun/Creole",4.058139534883721,Based on the extracted data from Yelp reviews for Royal
-_C7QiQQc47AOEv4PE3Kong,4.5,Commander's Palace,4876,"French, Restaurants, Cocktail Bars, Nightlife, American (New), Cajun/Creole, Breakfast & Brunch, American (Traditional), Bars",4.058139534883721,Based on the provided Yelp reviews for Commander's Palace
-qb28j-FNX1_6xm7u372TZA,4.0,Gumbo Shop,3902,"Cajun/Creole, Seafood, Restaurants",4.058139534883721,Based on the extracted data from Yelp reviews for G
-VaO-VW3e1kARkU9bP1E7Fw,4.0,Felix's Restaurant & Oyster Bar,3966,"Restaurants, Sandwiches, Seafood, Cajun/Creole",4.058139534883721,Based on the extracted data from Yelp reviews for Felix
-6a4gLLFSgr-Q6CZXDLzBGQ,4.0,Cochon,4421,"Cajun/Creole, Seafood, Restaurants",4.058139534883721,Based on the customer feedback for the restaurant Cochon
-iSRTaT9WngzB8JJ2YKJUig,3.5,Mother's Restaurant,5185,"Cajun/Creole, Restaurants, Event Planning & Services, Southern, Specialty Food, Soul Food, Food, Ethnic Food, American (New), Caterers, Breakfast & Brunch, Sandwiches",4.058139534883721,Based on the extracted data from Yelp reviews for Mother
-ac1AeYqs8Z4_e2X5M3if2A,4.0,Oceana Grill,7400,"Restaurants, Seafood, Cajun/Creole, Breakfast & Brunch",4.058139534883721,Based on the provided Yelp reviews for Oceana
-_ab50qdWOk0DdB6XOrBitw,4.0,Acme Oyster House,7568,"Live/Raw Food, Seafood, Restaurants, Cajun/Creole",4.058139534883721,Based on the analysis of the feedback provided for Ac
-oBNrLz4EDhiscSlbOl8uAw,4.5,Ruby Slipper - New Orleans,5193,"Restaurants, American (Traditional), American (New), Cafes, Breakfast & Brunch",4.058139534883721,Based on the provided data extracted from Yelp reviews for
+GBTPC53ZrG1ZBY3DT8Mbcw,4.0,Luke,4554,"German, Restaurants, Seafood, Cocktail Bars, French, Brasseries, American (New), Nightlife, Bars, Cajun/Creole, Breakfast & Brunch",4.058139534883721,"Based on the extracted data from Yelp reviews for the restaurant named Luke, here are some recommendations to improve the business:
+
+1. **Consistent Quality Control**: Consistency in food quality is crucial. Address complaints regarding finding a hair in the food promptly and professionally. Implement rigorous quality control measures in the kitchen to ensure high standards are maintained.
+
+2. **Customer Service Training**: Focus on enhancing customer service skills among staff members. Customers value friendly and attentive service. Address complaints about poor service and ensure all staff members are trained in handling customer concerns with empathy and professionalism.
+
+3. **Special Requests**: Continue accommodating special requests with ample notice, as mentioned in positive reviews. Emphasize personalized customer experiences to create a lasting impression and loyalty among patrons.
+
+4. **Innovative Menu**: Consider introducing new and innovative dishes to avoid feedback about the lack of variety and innovation in the menu. Highlight unique and standout items to attract more customers.
+
+5. **Efficient Seating and Wait Times**: Address complaints about long wait times and inefficient seating arrangements. Improve the reservation system to provide a smoother dining experience for customers, especially during busy hours.
+
+6. **Value for Money**: While maintaining quality, ensure that the pricing reflects the value offered. Customers appreciate reasonable prices for excellent food and service. Address concerns about overpriced meals to enhance satisfaction.
+
+By focusing on these areas, Luke can improve customer satisfaction, attract more patrons, and enhance the overall dining experience at the restaurant."
+VQcCL9PiNL_wkGf-uF3fjg,4.0,Royal House,5070,"American (New), Restaurants, Sandwiches, Seafood, Cajun/Creole",4.058139534883721,"Based on the extracted data, here are some key suggestions for the restaurant owner of Royal House to improve their business:
+
+Positive Feedback Themes:
+1. **Excellent Service:** Customers value exceptional service. Encourage all staff to be attentive, friendly, and knowledgeable about the menu.
+2. **Delicious Food:** Highlight dishes that receive consistent praise like the Chargrilled Oysters, Crab Claws, and Blackened Redfish. Ensure food quality and consistency across all menu items.
+3. **Engaging Staff:** Customers appreciate staff members like Tina and Becks who enhance the dining experience through their personality and recommendations.
+
+Areas for Improvement:
+1. **Food Quality Control:** Address complaints about cold food, improperly cooked items, and seafood issues promptly to ensure all dishes meet high standards.
+2. **Timely Service:** Focus on improving efficiency during peak hours to minimize wait times for seating and food orders. Maintain better communication with guests about any delays.
+3. **Consistency in Experience:** Be attentive to feedback about changes in chefs impacting the overall dining experience. Strive for consistency in both service and food quality.
+
+Implementing these recommendations can help Royal House enhance customer satisfaction, attract new patrons, and build a positive reputation in the competitive restaurant industry."
+_C7QiQQc47AOEv4PE3Kong,4.5,Commander's Palace,4876,"French, Restaurants, Cocktail Bars, Nightlife, American (New), Cajun/Creole, Breakfast & Brunch, American (Traditional), Bars",4.058139534883721,"Based on the data extracted from Yelp reviews for Commander's Palace, here are some common themes found in customer feedback along with suggestions for improvement:
+
+**Positive Feedback Themes:**
+1. **Impeccable Service:** Multiple customers praised the impeccable and professional service at Commander's Palace. This is a significant strength of the restaurant that should be maintained and continuously improved upon. Training staff to maintain a high level of attentiveness, friendliness, and professionalism is key.
+   
+2. **Delicious Food:** Customers commended the delicious and memorable food offerings at Commander's Palace, particularly highlighting signature dishes such as turtle soup, Black Skillet Seared Gulf Fish, and Creole Bread Pudding Souffle. Consistently delivering high-quality, flavorful dishes is essential to keep customers coming back.
+
+3. **Elegant Atmosphere:** The refined and romantic atmosphere, along with live music during the Jazz Brunch, was appreciated by customers. Creating a welcoming ambiance that complements the dining experience can set Commander's Palace apart from competitors.
+
+**Areas for Improvement:**
+1. **Inconsistent Service:** Some customers mentioned experiencing rude or inattentive service, such as long wait times for menus, forgotten orders, and unacknowledged special occasions. Ensuring all staff members are attentive, courteous, and responsive to customers' needs is crucial for a positive dining experience.
+
+2. **Strict Dress Code:** While some customers appreciate the dress code as part of the restaurant's charm, others found it restrictive and inconvenient. Considering relaxing the dress code policy slightly to accommodate a broader range of customers without compromising the upscale dining experience.
+
+3. **Menu Offerings:** A few customers expressed disappointment with certain dishes, finding them overly rich, heavy, or not up to expectations. Regularly reviewing and updating the menu to ensure a diverse selection of high-quality dishes that cater to various preferences can enhance overall customer satisfaction.
+
+4. **Price Perception:** Some customers felt that the prices at Commander's Palace did not align with their dining experience, particularly when service fell short of expectations. Revisiting pricing strategies and ensuring that the value customers receive matches the cost will help in managing price perception.
+
+By focusing on enhancing service consistency, optimizing the menu offerings, and maintaining the restaurant's elegant atmosphere, Commander's Palace can continue to delight customers and strengthen its reputation as a top dining destination in New Orleans."
+qb28j-FNX1_6xm7u372TZA,4.0,Gumbo Shop,3902,"Cajun/Creole, Seafood, Restaurants",4.058139534883721,"Based on the provided data from Yelp reviews for Gumbo Shop, here are some concise suggestions for the restaurant owner to improve their business:
+
+1. Consistency in Food Quality: Customers have mentioned inconsistencies in food quality, such as small and mushy crawfish in certain dishes and lukewarm food being served. The restaurant should focus on ensuring that each dish maintains high quality and temperature consistency.
+
+2. Address Service Issues: Some reviews mentioned dissatisfaction with the service, including food being sent back due to temperature issues without a proper apology or compensation. Training staff to handle complaints effectively and providing excellent customer service can enhance the overall dining experience.
+
+3. Highlight Signature Dish: The bread pudding received consistent praise from customers. Emphasizing and promoting this popular item even more could attract more customers and create a positive impression of the restaurant.
+
+4. Monitor Portion Sizes: While some customers appreciated the variety of side dishes, others complained about portion sizes, such as lack of seafood in gumbo and small servings. Ensuring that dishes have generous and satisfying portions can improve customer satisfaction.
+
+5. Engage with Customer Feedback: Take feedback seriously and use it to make necessary improvements. Encouraging customers to provide feedback through surveys or comment cards can help the restaurant understand areas that need attention.
+
+Implementing these suggestions can help Gumbo Shop enhance overall customer satisfaction, improve reputation, and retain loyal patrons."
+VaO-VW3e1kARkU9bP1E7Fw,4.0,Felix's Restaurant & Oyster Bar,3966,"Restaurants, Sandwiches, Seafood, Cajun/Creole",4.058139534883721,"Based on the extracted data from Yelp's reviews for Felix's Restaurant & Oyster Bar, here are some key suggestions for the restaurant owner to improve their business:
+
+1. **Consistent Service Quality**: Customers consistently praise the attentive and positive energy of the bar staff. Ensure all staff members, including the hostess and waitstaff, are polite, welcoming, and attentive to provide a positive experience for all patrons.
+
+2. **Cleanliness and Atmosphere**: Address complaints about cleanliness, such as sticky and dirty booths and dirty restrooms. Maintaining a clean and pleasant environment can significantly enhance the overall dining experience.
+
+3. **Customer Appreciation**: Encourage staff to show appreciation towards customers. Simple gestures like thanking patrons and wishing them a good day can go a long way in improving customer satisfaction.
+
+4. **Quality Control**: Ensure food quality remains consistent and up to standard. Address complaints about overpriced and underwhelming dishes by focusing on enhancing the taste and presentation of menu items.
+
+5. **Efficient Service**: Improve service speed and efficiency by reducing wait times between courses and ensuring prompt refills of beverages. Customers value a seamless dining experience.
+
+6. **Value for Money**: Address concerns about portion sizes and pricing. Consider offering value deals, combos, or adjusting portion sizes to provide better value for customers.
+
+7. **Competitive Differentiation**: Emphasize what sets Felix's apart from competitors in the area. Highlight unique menu items, such as the charbroiled oysters, to attract and retain customers.
+
+By implementing these suggestions, Felix's Restaurant & Oyster Bar can enhance customer satisfaction, differentiate itself in a competitive market, and ultimately improve its overall business performance."
+6a4gLLFSgr-Q6CZXDLzBGQ,4.0,Cochon,4421,"Cajun/Creole, Seafood, Restaurants",4.058139534883721,"Based on the extracted data from Yelp reviews for Cochon, here are some concise suggestions for the restaurant owner to improve their business:
+
+1. **Service Improvement:**
+   - Consistently mentioned complaint is about poor service. Focus on training staff to be attentive, efficient, and friendly to improve customer experience.
+   - Address issues with timely service, attention to all customers, and responsiveness to customer needs.
+
+2. **Quality Control:**
+   - Several complaints about inconsistency in food quality and incorrect orders. Ensure that dishes are prepared as described on the menu and maintain quality standards.
+   - Address concerns about food being too salty or uninspired, and work on enhancing flavors without compromising on taste.
+
+3. **Hostess Behavior:**
+   - Negative feedback regarding hostess behavior and attitude towards customers. Provide training to front-of-house staff on customer service and maintaining a welcoming atmosphere.
+   - Address complaints about favoritism or perceived elitism in seating guests to ensure fair treatment for all customers.
+
+4. **Menu Evaluation:**
+   - Consider revisiting the menu to ensure that customer favorites are highlighted and well-executed.
+   - Address feedback on specific dishes such as fatty meats or lack of specified ingredients in salads to enhance overall dining experience.
+
+5. **Feedback Acknowledgement:**
+   - Pay attention to customer feedback and address concerns promptly. Engage with dissatisfied customers to understand their experience and show a willingness to improve.
+
+By focusing on these key areas of improvement, Cochon can enhance customer satisfaction, drive positive reviews, and establish a stronger reputation in the market."
+iSRTaT9WngzB8JJ2YKJUig,3.5,Mother's Restaurant,5185,"Cajun/Creole, Restaurants, Event Planning & Services, Southern, Specialty Food, Soul Food, Food, Ethnic Food, American (New), Caterers, Breakfast & Brunch, Sandwiches",4.058139534883721,"Based on the extracted data from Yelp's reviews for Mother's Restaurant, here are some concise suggestions for the restaurant owner to improve their business:
+
+1. **Improve cleanliness and ambiance**: Address complaints about the restaurant being dirty by focusing on cleanliness and maintaining a welcoming ambiance for customers.
+
+2. **Enhance customer service**: Ensure staff are friendly, attentive, and provide a positive dining experience for customers to combat negative reviews of rude service.
+
+3. **Consistent food quality**: Maintain the quality and flavor of dishes consistently to meet customer expectations and avoid complaints about unseasoned or cold food.
+
+4. **Efficient operations**: Despite long lines, ensure efficient service to minimize wait times and keep customers satisfied.
+
+5. **Address specific dish feedback**: Address specific complaints about individual menu items such as fried catfish, fried chicken, and sweet potato pie to improve overall food quality and customer satisfaction.
+
+6. **Manage expectations**: Be transparent about portion sizes and ensure that the food lives up to the reputation to avoid disappointment in the dining experience.
+
+By focusing on these areas, Mother's Restaurant can address common themes found in customer feedback and work towards enhancing their overall business operations and customer satisfaction."
+ac1AeYqs8Z4_e2X5M3if2A,4.0,Oceana Grill,7400,"Restaurants, Seafood, Cajun/Creole, Breakfast & Brunch",4.058139534883721,"Based on the extracted Yelp reviews for Oceana Grill, here are some concise suggestions for the restaurant owner on how they can improve their business:
+
+1. **Food Quality Control**: It is crucial to ensure that all dishes served are of high quality and meet customer expectations. Consistency is key. Address issues with food items like the rotten tuna mentioned in reviews as it can severely impact the dining experience and result in negative reviews.
+
+2. **Customer Service**: While some reviews praised the waitstaff for their service, others criticized the manager for being inhospitable. Ensure that all staff members provide excellent customer service, handle complaints professionally, and show genuine care for customers' experiences.
+
+3. **Menu Feedback**: Pay attention to customer feedback on specific menu items. In one review, there were complaints about the shrimp having too much breading and the Alfredo being too hot. Consider adjusting recipes or cooking techniques based on feedback to enhance customer satisfaction.
+
+4. **Cleanliness and Hygiene**: Given the serious complaint about the quality of the tuna creating concerns about food poisoning, it is essential to maintain high standards of cleanliness and food safety to prevent any health-related issues for customers.
+
+5. **Consistency**: The positive reviews highlighted excellent dishes like Crawfish Entoufe, Gumbo, and Gator Tail Bites. Focus on maintaining the same level of quality and taste across all menu items to ensure a consistently positive dining experience for customers.
+
+6. **Reputation Management**: Respond to negative reviews professionally and promptly address any concerns raised by customers. Demonstrating a commitment to improving based on feedback can help mitigate the impact of negative reviews on the restaurant's reputation.
+
+By addressing these areas of improvement, Oceana Grill can enhance its overall customer satisfaction, reputation, and ultimately drive more positive reviews and repeat business."
+_ab50qdWOk0DdB6XOrBitw,4.0,Acme Oyster House,7568,"Live/Raw Food, Seafood, Restaurants, Cajun/Creole",4.058139534883721,"Based on the provided data from Yelp's reviews for Acme Oyster House, here are some concise suggestions for the restaurant owner to improve their business:
+
+1. Improve Food Quality and Consistency:
+- Focus on maintaining high food quality standards consistently to meet customer expectations.
+- Ensure that all dishes are prepared using fresh ingredients and cooked to perfection.
+
+2. Enhance Customer Service:
+- Train staff members to provide excellent customer service, including accommodating larger parties and handling complaints promptly and effectively.
+- Consider taking reservations to improve the overall dining experience for customers.
+
+3. Address Cleanliness Concerns:
+- Pay attention to the cleanliness and hygiene of the restaurant environment to create a more inviting atmosphere for customers.
+- Implement regular cleaning schedules and inspections to maintain a sanitary dining space.
+
+4. Menu Innovation and Diversification:
+- Consider updating the menu with new, innovative dishes to cater to a wider range of preferences.
+- Conduct regular tastings and gather feedback from customers to ensure menu offerings are well-received.
+
+By focusing on these areas of improvement, Acme Oyster House can enhance customer satisfaction, attract more patrons, and build a positive reputation in the competitive restaurant industry."
+oBNrLz4EDhiscSlbOl8uAw,4.5,Ruby Slipper - New Orleans,5193,"Restaurants, American (Traditional), American (New), Cafes, Breakfast & Brunch",4.058139534883721,"Based on the Yelp reviews for Ruby Slipper - New Orleans, here are some suggestions for the restaurant owner to improve their business:
+
+Positive Feedback:
+1. Consistent Praise for Server Freddie: Implement more training and recognition programs for staff members like Freddie to maintain excellent service quality.
+2. Good Food Quality: Ensure consistency in food quality and offer more authentic New Orleans dishes to meet customer expectations.
+3. Group Accommodations: Continue accommodating large groups effectively to enhance the overall customer experience.
+
+Areas for Improvement:
+1. Hygiene Concerns: Address the issue of cleanliness, especially the presence of cockroaches, as it significantly impacts the restaurant's reputation and customer confidence.
+2. Customer Service Training: Provide additional training to staff members to improve attitude, attentiveness, and responsiveness towards customers.
+3. Pricing and Value Perception: Review pricing strategy and focus on delivering value for money to justify the prices charged.
+4. Timeliness and Efficiency: Work on reducing wait times for both seating and food service to enhance the overall dining experience.
+
+By addressing these key aspects, Ruby Slipper - New Orleans can enhance customer satisfaction, attract more positive reviews, and build a stronger reputation in the competitive restaurant industry."

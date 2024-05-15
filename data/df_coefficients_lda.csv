@@ -1,0 +1,101 @@
+Business ID,name,Coefficient Type,Feature,Coefficient
+GBTPC53ZrG1ZBY3DT8Mbcw,Luke,Top 5 Positive,Extraordinary Recommendation,0.190771858802313
+GBTPC53ZrG1ZBY3DT8Mbcw,Luke,Top 5 Positive,Top Picks,0.14308200171058
+GBTPC53ZrG1ZBY3DT8Mbcw,Luke,Top 5 Positive,Southern Dishes,0.138121610243778
+GBTPC53ZrG1ZBY3DT8Mbcw,Luke,Top 5 Positive,Oyster Specialties,0.101379376732762
+GBTPC53ZrG1ZBY3DT8Mbcw,Luke,Top 5 Positive,Return Intent,0.098271294836305
+GBTPC53ZrG1ZBY3DT8Mbcw,Luke,Bottom 5 Negative,Service Issues,-0.149247168466644
+GBTPC53ZrG1ZBY3DT8Mbcw,Luke,Bottom 5 Negative,Long Waits,-0.142765175066724
+GBTPC53ZrG1ZBY3DT8Mbcw,Luke,Bottom 5 Negative,Shrimp Po' Boy,-0.1380417258119
+GBTPC53ZrG1ZBY3DT8Mbcw,Luke,Bottom 5 Negative,Taste Preferences,-0.120491777747125
+GBTPC53ZrG1ZBY3DT8Mbcw,Luke,Bottom 5 Negative,Mediocre Food,-0.110908057571472
+qb28j-FNX1_6xm7u372TZA,Gumbo Shop,Top 5 Positive,Extraordinary Recommendation,0.181153181437476
+qb28j-FNX1_6xm7u372TZA,Gumbo Shop,Top 5 Positive,Bar Atmosphere,0.138066341378778
+qb28j-FNX1_6xm7u372TZA,Gumbo Shop,Top 5 Positive,Return Intent,0.109349450671553
+qb28j-FNX1_6xm7u372TZA,Gumbo Shop,Top 5 Positive,Quality Dining,0.108502570432799
+qb28j-FNX1_6xm7u372TZA,Gumbo Shop,Top 5 Positive,Outdoor Seating,0.100652377333102
+qb28j-FNX1_6xm7u372TZA,Gumbo Shop,Bottom 5 Negative,Tourist Avoidance,-0.256685791883784
+qb28j-FNX1_6xm7u372TZA,Gumbo Shop,Bottom 5 Negative,Taste Preferences,-0.240611350589831
+qb28j-FNX1_6xm7u372TZA,Gumbo Shop,Bottom 5 Negative,Food Quality,-0.194453194498279
+qb28j-FNX1_6xm7u372TZA,Gumbo Shop,Bottom 5 Negative,Service Issues,-0.194381075704712
+qb28j-FNX1_6xm7u372TZA,Gumbo Shop,Bottom 5 Negative,Mediocre Food,-0.113838918942385
+_C7QiQQc47AOEv4PE3Kong,Commander's Palace,Top 5 Positive,Extraordinary Recommendation,0.151867693186679
+_C7QiQQc47AOEv4PE3Kong,Commander's Palace,Top 5 Positive,Top Picks,0.148972129205649
+_C7QiQQc47AOEv4PE3Kong,Commander's Palace,Top 5 Positive,Southern Dishes,0.144127708624882
+_C7QiQQc47AOEv4PE3Kong,Commander's Palace,Top 5 Positive,Customer Service Experience,0.124492084019586
+_C7QiQQc47AOEv4PE3Kong,Commander's Palace,Top 5 Positive,New Orleans Culture,0.100503987937729
+_C7QiQQc47AOEv4PE3Kong,Commander's Palace,Bottom 5 Negative,Taste Preferences,-0.234440696089499
+_C7QiQQc47AOEv4PE3Kong,Commander's Palace,Bottom 5 Negative,Shrimp Po' Boy,-0.198154055851518
+_C7QiQQc47AOEv4PE3Kong,Commander's Palace,Bottom 5 Negative,Service Issues,-0.182395166498788
+_C7QiQQc47AOEv4PE3Kong,Commander's Palace,Bottom 5 Negative,Satisfactory Experience,-0.165781544101416
+_C7QiQQc47AOEv4PE3Kong,Commander's Palace,Bottom 5 Negative,Long Waits,-0.14651370824418
+VQcCL9PiNL_wkGf-uF3fjg,Royal House,Top 5 Positive,Extraordinary Recommendation,0.317336586096545
+VQcCL9PiNL_wkGf-uF3fjg,Royal House,Top 5 Positive,Bar Atmosphere,0.158994710820637
+VQcCL9PiNL_wkGf-uF3fjg,Royal House,Top 5 Positive,Quality Dining,0.123557572003089
+VQcCL9PiNL_wkGf-uF3fjg,Royal House,Top 5 Positive,Favorite Spot,0.122120467286048
+VQcCL9PiNL_wkGf-uF3fjg,Royal House,Top 5 Positive,Return Intent,0.121988251805591
+VQcCL9PiNL_wkGf-uF3fjg,Royal House,Bottom 5 Negative,Taste Preferences,-0.265127360601635
+VQcCL9PiNL_wkGf-uF3fjg,Royal House,Bottom 5 Negative,Service Issues,-0.196765345521728
+VQcCL9PiNL_wkGf-uF3fjg,Royal House,Bottom 5 Negative,Long Waits,-0.182444404735136
+VQcCL9PiNL_wkGf-uF3fjg,Royal House,Bottom 5 Negative,Food Quality,-0.182269712717841
+VQcCL9PiNL_wkGf-uF3fjg,Royal House,Bottom 5 Negative,Mediocre Food,-0.128078708514589
+VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar,Top 5 Positive,Oyster Specialties,0.236435175424941
+VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar,Top 5 Positive,Extraordinary Recommendation,0.202196876804654
+VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar,Top 5 Positive,Bar Atmosphere,0.193724729062112
+VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar,Top 5 Positive,Lacking Value,0.121350866537527
+VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar,Top 5 Positive,Favorite Spot,0.080421814120834
+VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar,Bottom 5 Negative,Service Issues,-0.286213415722477
+VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar,Bottom 5 Negative,Taste Preferences,-0.147665551973
+VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar,Bottom 5 Negative,Food Quality,-0.115705827128298
+VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar,Bottom 5 Negative,Shrimp Po' Boy,-0.115659555537796
+VaO-VW3e1kARkU9bP1E7Fw,Felix's Restaurant & Oyster Bar,Bottom 5 Negative,Long Waits,-0.103856161862575
+6a4gLLFSgr-Q6CZXDLzBGQ,Cochon,Top 5 Positive,Extraordinary Recommendation,0.158230979253524
+6a4gLLFSgr-Q6CZXDLzBGQ,Cochon,Top 5 Positive,Bar Atmosphere,0.13562706606429
+6a4gLLFSgr-Q6CZXDLzBGQ,Cochon,Top 5 Positive,Oyster Specialties,0.114892657091559
+6a4gLLFSgr-Q6CZXDLzBGQ,Cochon,Top 5 Positive,Top Picks,0.104316351421364
+6a4gLLFSgr-Q6CZXDLzBGQ,Cochon,Top 5 Positive,New Orleans Culture,0.088228294800664
+6a4gLLFSgr-Q6CZXDLzBGQ,Cochon,Bottom 5 Negative,Service Issues,-0.183569521649656
+6a4gLLFSgr-Q6CZXDLzBGQ,Cochon,Bottom 5 Negative,Taste Preferences,-0.138386837740027
+6a4gLLFSgr-Q6CZXDLzBGQ,Cochon,Bottom 5 Negative,Long Waits,-0.132944245225339
+6a4gLLFSgr-Q6CZXDLzBGQ,Cochon,Bottom 5 Negative,Shrimp Po' Boy,-0.109632552386777
+6a4gLLFSgr-Q6CZXDLzBGQ,Cochon,Bottom 5 Negative,Satisfactory Experience,-0.10892896547505
+iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant,Top 5 Positive,Outdoor Seating,0.172840512820866
+iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant,Top 5 Positive,Extraordinary Recommendation,0.156760963496059
+iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant,Top 5 Positive,Cheese and Steak,0.146647747778398
+iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant,Top 5 Positive,New Orleans Culture,0.126066943925504
+iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant,Top 5 Positive,Return Intent,0.124461241796676
+iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant,Bottom 5 Negative,Food Quality,-0.356034130171306
+iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant,Bottom 5 Negative,Mediocre Food,-0.185003291175391
+iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant,Bottom 5 Negative,Tourist Avoidance,-0.180668702305061
+iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant,Bottom 5 Negative,Taste Preferences,-0.172833208458639
+iSRTaT9WngzB8JJ2YKJUig,Mother's Restaurant,Bottom 5 Negative,Philadelphia Cheesesteak,-0.1060557480954
+ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill,Top 5 Positive,Extraordinary Recommendation,0.206517965848902
+ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill,Top 5 Positive,Return Intent,0.1115501039274
+ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill,Top 5 Positive,Quality Dining,0.102738851657569
+ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill,Top 5 Positive,Outstanding Service,0.091080114012896
+ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill,Top 5 Positive,Bar Atmosphere,0.088199060386205
+ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill,Bottom 5 Negative,Taste Preferences,-0.228973316945305
+ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill,Bottom 5 Negative,Mediocre Food,-0.158523142765394
+ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill,Bottom 5 Negative,Tourist Avoidance,-0.153814617182472
+ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill,Bottom 5 Negative,Service Issues,-0.144744412229256
+ac1AeYqs8Z4_e2X5M3if2A,Oceana Grill,Bottom 5 Negative,Food Quality,-0.117977032491093
+_ab50qdWOk0DdB6XOrBitw,Acme Oyster House,Top 5 Positive,Oyster Specialties,0.206976160271622
+_ab50qdWOk0DdB6XOrBitw,Acme Oyster House,Top 5 Positive,Cheese and Steak,0.14721742422712
+_ab50qdWOk0DdB6XOrBitw,Acme Oyster House,Top 5 Positive,Extraordinary Recommendation,0.133483543837197
+_ab50qdWOk0DdB6XOrBitw,Acme Oyster House,Top 5 Positive,Bar Atmosphere,0.124778542045964
+_ab50qdWOk0DdB6XOrBitw,Acme Oyster House,Top 5 Positive,Lacking Value,0.1211183304235
+_ab50qdWOk0DdB6XOrBitw,Acme Oyster House,Bottom 5 Negative,Tourist Avoidance,-0.210341202651982
+_ab50qdWOk0DdB6XOrBitw,Acme Oyster House,Bottom 5 Negative,Food Quality,-0.20415756247572
+_ab50qdWOk0DdB6XOrBitw,Acme Oyster House,Bottom 5 Negative,Service Issues,-0.155007712603227
+_ab50qdWOk0DdB6XOrBitw,Acme Oyster House,Bottom 5 Negative,Taste Preferences,-0.145085801383079
+_ab50qdWOk0DdB6XOrBitw,Acme Oyster House,Bottom 5 Negative,Mediocre Food,-0.138844053799596
+oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans,Top 5 Positive,Extraordinary Recommendation,0.180710792650465
+oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans,Top 5 Positive,Cheese and Steak,0.122317985518068
+oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans,Top 5 Positive,Breakfast Choices,0.102263227079111
+oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans,Top 5 Positive,Quality Dining,0.092078039614521
+oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans,Top 5 Positive,Lacking Value,0.083854219094053
+oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans,Bottom 5 Negative,Taste Preferences,-0.195140382134267
+oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans,Bottom 5 Negative,Service Issues,-0.140814930118007
+oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans,Bottom 5 Negative,Mediocre Food,-0.124353992513
+oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans,Bottom 5 Negative,Food Quality,-0.093259597569414
+oBNrLz4EDhiscSlbOl8uAw,Ruby Slipper - New Orleans,Bottom 5 Negative,Shrimp Po' Boy,-0.084058136576756

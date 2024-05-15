@@ -1,0 +1,301 @@
+phrase,score,topic,topic_label
+customer service,192.94528218457043,0,Customer Service Experience
+of,161.41388452696577,0,Customer Service Experience
+room,153.2895710660561,0,Customer Service Experience
+not,150.76807981908013,0,Customer Service Experience
+customer,106.77704488501584,0,Customer Service Experience
+time,106.25852368926572,0,Customer Service Experience
+hotel,104.9765582903005,0,Customer Service Experience
+feel like,102.1882084273905,0,Customer Service Experience
+first time,99.2617732914727,0,Customer Service Experience
+like,97.89739097889854,0,Customer Service Experience
+of us,137.55176267664075,1,Bar Atmosphere
+bar,96.14860190662226,1,Bar Atmosphere
+of,95.24982420287384,1,Bar Atmosphere
+front of,86.43459930554843,1,Bar Atmosphere
+try place,81.90831267050729,1,Bar Atmosphere
+us,79.97001887801817,1,Bar Atmosphere
+sat bar,79.34559692274564,1,Bar Atmosphere
+saturday night,64.44366718425711,1,Bar Atmosphere
+excited try,62.203008017374195,1,Bar Atmosphere
+place,52.67537343828064,1,Bar Atmosphere
+very nice,79.45886406639087,2,Mediocre Food
+waste time,71.2763354073284,2,Mediocre Food
+not best,68.13808134624772,2,Mediocre Food
+food average,65.7328448731005,2,Mediocre Food
+bottle of,55.27593088958679,2,Mediocre Food
+two of us,51.10985418166174,2,Mediocre Food
+two of,44.06987415942866,2,Mediocre Food
+bottle of wine,43.47296189981287,2,Mediocre Food
+average,35.23959074657202,2,Mediocre Food
+of dishes,34.73961937209697,2,Mediocre Food
+not worth,199.38284562406477,3,Lacking Value
+good not,158.03702577315892,3,Lacking Value
+not,134.15803893505975,3,Lacking Value
+not great,125.55278502416358,3,Lacking Value
+worth,114.31474259856338,3,Lacking Value
+would go back,98.50368281262575,3,Lacking Value
+good not great,91.64362780735264,3,Lacking Value
+fried green tomatoes,87.55564135492139,3,Lacking Value
+would go,76.24461283466492,3,Lacking Value
+good,71.64166404024016,3,Lacking Value
+new orleans,430.4819706496192,4,New Orleans Culture
+orleans,218.38931786331204,4,New Orleans Culture
+new,185.45676529539656,4,New Orleans Culture
+of new orleans,94.2823686411163,4,New Orleans Culture
+of new,72.47674499970172,4,New Orleans Culture
+worth wait,68.83290123052238,4,New Orleans Culture
+not worth wait,60.66867773418978,4,New Orleans Culture
+go wrong,51.12736094820985,4,New Orleans Culture
+service slow,48.52607223161497,4,New Orleans Culture
+taste of new orleans,42.15885849443209,4,New Orleans Culture
+wait,163.5284333706485,5,Long Waits
+make sure,110.00538437489452,5,Long Waits
+long wait,104.4373203021533,5,Long Waits
+food,99.9130945385815,5,Long Waits
+minutes,90.85287583502686,5,Long Waits
+get,85.94921764317861,5,Long Waits
+party of,83.32817631514425,5,Long Waits
+long,75.55503182087612,5,Long Waits
+of,75.12350495784065,5,Long Waits
+hour,74.18463495827991,5,Long Waits
+of food,174.22735025315518,6,Food Quality
+of,154.08631663850915,6,Food Quality
+quality of food,133.16581209243418,6,Food Quality
+quality of,115.50277011238384,6,Food Quality
+very disappointed,104.0163146311332,6,Food Quality
+dining experience,99.47931493659917,6,Food Quality
+food,96.29811620094549,6,Food Quality
+quality,83.47691364012941,6,Food Quality
+one of most,75.0084990249319,6,Food Quality
+most of,67.74426331293073,6,Food Quality
+shrimp grits,180.49511988271365,7,Southern Dishes
+grits,118.1345499927524,7,Southern Dishes
+would recommend,116.76937313308242,7,Southern Dishes
+bread pudding,105.95866137579466,7,Southern Dishes
+shrimp,102.20265003893644,7,Southern Dishes
+of,89.4312146958891,7,Southern Dishes
+of course,77.98057971851227,7,Southern Dishes
+everything else,75.7465043802403,7,Southern Dishes
+good,73.98953722873173,7,Southern Dishes
+really enjoyed,71.67677990035125,7,Southern Dishes
+po boy,239.77821226812495,8,Shrimp Po' Boy
+po,176.31337115961492,8,Shrimp Po' Boy
+boy,141.49268605424422,8,Shrimp Po' Boy
+shrimp po boy,139.02972095248072,8,Shrimp Po' Boy
+nothing special,109.18514234292437,8,Shrimp Po' Boy
+shrimp,105.6379474427015,8,Shrimp Po' Boy
+po boys,85.68703363829599,8,Shrimp Po' Boy
+shrimp po,83.00532331930407,8,Shrimp Po' Boy
+food ok,73.90582022712302,8,Shrimp Po' Boy
+fried shrimp,58.556339673252104,8,Shrimp Po' Boy
+go back,116.02504991127678,9,Returning Doubtful
+long time,90.0622475378936,9,Returning Doubtful
+never go,80.71886690894429,9,Returning Doubtful
+not go,77.1502499506382,9,Returning Doubtful
+never go back,76.81943055898077,9,Returning Doubtful
+back again,63.773560452926674,9,Returning Doubtful
+go back again,61.5520555523828,9,Returning Doubtful
+go,58.96769953747961,9,Returning Doubtful
+too long,51.51271402350041,9,Returning Doubtful
+not go back,51.21829361249653,9,Returning Doubtful
+of,226.67816181010724,10,Taste Preferences
+like,172.11617524976683,10,Taste Preferences
+too much,167.21640738397156,10,Taste Preferences
+tasted like,163.80783844400025,10,Taste Preferences
+too,132.37169765196504,10,Taste Preferences
+not,123.09969151420384,10,Taste Preferences
+good,122.33898997857824,10,Taste Preferences
+instead of,111.2633314812392,10,Taste Preferences
+much,105.05390314211292,10,Taste Preferences
+tasted,100.00227969943876,10,Taste Preferences
+mac cheese,281.25676201093194,11,Southern Comfort Food
+mac,163.9322283185225,11,Southern Comfort Food
+chicken,149.78246411700746,11,Southern Comfort Food
+pulled pork,132.4486428323346,11,Southern Comfort Food
+cheese,126.96522526970574,11,Southern Comfort Food
+hot chicken,119.39679538395532,11,Southern Comfort Food
+bbq,119.04816624601838,11,Southern Comfort Food
+hot,108.18277721859596,11,Southern Comfort Food
+pork,97.05606623852113,11,Southern Comfort Food
+sandwich,79.02982855493589,11,Southern Comfort Food
+happy hour,228.88541304711543,12,Happy Hour Selection
+ice cream,168.07794016859066,12,Happy Hour Selection
+sweet potato,109.86223053350264,12,Happy Hour Selection
+happy,107.76240172991506,12,Happy Hour Selection
+sweet potato fries,93.54662309683064,12,Happy Hour Selection
+selection of,92.0954095123251,12,Happy Hour Selection
+hour,91.75149936939148,12,Happy Hour Selection
+ice,84.5282499564361,12,Happy Hour Selection
+cream,81.33560303548303,12,Happy Hour Selection
+definitely recommend,78.47128107737834,12,Happy Hour Selection
+of,192.97186395570563,13,Cheese and Steak
+amount of,154.71271200450934,13,Cheese and Steak
+cheese steak,119.68770786942704,13,Cheese and Steak
+cheese,118.92921946876432,13,Cheese and Steak
+steak,111.96650099386528,13,Cheese and Steak
+of time,89.90555347858398,13,Cheese and Steak
+couple of,86.37545487818377,13,Cheese and Steak
+meat,76.93750191454536,13,Cheese and Steak
+of meat,75.84733314975664,13,Cheese and Steak
+amount,75.77380136655022,13,Cheese and Steak
+cheesesteak,116.6462206523277,14,Philadelphia Cheesesteak
+really good,97.25885910098022,14,Philadelphia Cheesesteak
+not impressed,94.97563021733376,14,Philadelphia Cheesesteak
+not,94.19507764835517,14,Philadelphia Cheesesteak
+philly,85.32152102257376,14,Philadelphia Cheesesteak
+really,77.5480498078239,14,Philadelphia Cheesesteak
+place,72.47748009760689,14,Philadelphia Cheesesteak
+recommend place,72.3416726282801,14,Philadelphia Cheesesteak
+philly cheesesteak,72.31168724561839,14,Philadelphia Cheesesteak
+good,70.81933149772946,14,Philadelphia Cheesesteak
+nothing write home,101.77528407638006,15,Reliable Staff
+wait staff,96.75795379612106,15,Reliable Staff
+would come back,96.48380253932396,15,Reliable Staff
+staff very,88.11643901719663,15,Reliable Staff
+would come,82.81917710809199,15,Reliable Staff
+very friendly,78.30021467099539,15,Reliable Staff
+staff very friendly,75.58413118246706,15,Reliable Staff
+write home,67.25838521126477,15,Reliable Staff
+not bad,59.413036587052474,15,Reliable Staff
+staff,57.595380562651265,15,Reliable Staff
+food good,182.79658569386584,16,Quality Dining
+very good,172.01216832243568,16,Quality Dining
+good,150.38090885309154,16,Quality Dining
+good service,139.72102756393548,16,Quality Dining
+very,112.59678154199686,16,Quality Dining
+clam chowder,81.2663798847137,16,Quality Dining
+very tasty,76.29607496611112,16,Quality Dining
+seated right away,72.07287817382937,16,Quality Dining
+food,71.3652950683007,16,Quality Dining
+crab cakes,69.4485269040476,16,Quality Dining
+great,271.15913166843495,17,Outstanding Service
+food great,208.86070790184183,17,Outstanding Service
+great service,198.63469682612808,17,Outstanding Service
+great food,176.34851814254927,17,Outstanding Service
+food,170.9367015246165,17,Outstanding Service
+service,136.43407473656742,17,Outstanding Service
+would not recommend,130.57883885523802,17,Outstanding Service
+love place,108.5958835418408,17,Outstanding Service
+service food,105.48677216376538,17,Outstanding Service
+great atmosphere,98.85188905641088,17,Outstanding Service
+good food,151.25861504490734,18,Satisfactory Experience
+pretty good,121.44936617685936,18,Satisfactory Experience
+service good,118.65654122520505,18,Satisfactory Experience
+good,101.30733258873023,18,Satisfactory Experience
+food pretty good,73.91791567066694,18,Satisfactory Experience
+pretty,67.99688547546705,18,Satisfactory Experience
+food pretty,67.47132873159606,18,Satisfactory Experience
+food,57.455949585531386,18,Satisfactory Experience
+trip new orleans,56.54220615195651,18,Satisfactory Experience
+time go,55.44634468425333,18,Satisfactory Experience
+part of,146.74296146186745,19,Dissatisfied Feedback
+best part,95.80880386341612,19,Dissatisfied Feedback
+best part of,94.46011619990117,19,Dissatisfied Feedback
+of meal,87.0797916127146,19,Dissatisfied Feedback
+part,85.36592696928884,19,Dissatisfied Feedback
+kind of,75.21728911463137,19,Dissatisfied Feedback
+not very,72.73407421318342,19,Dissatisfied Feedback
+best part of meal,70.01501124582867,19,Dissatisfied Feedback
+part of meal,66.90288788750141,19,Dissatisfied Feedback
+end of meal,64.77461068855953,19,Dissatisfied Feedback
+next time,111.0615663633852,20,Return Intent
+come back,107.27781565909928,20,Return Intent
+definitely come back,81.3220910267356,20,Return Intent
+definitely back,72.24301189777948,20,Return Intent
+full of,70.51870072821826,20,Return Intent
+definitely come,69.1488526433887,20,Return Intent
+rest of,67.28651624510556,20,Return Intent
+would definitely,65.382646345659,20,Return Intent
+definitely,64.82135219470175,20,Return Intent
+back next,64.05972064716177,20,Return Intent
+fried chicken,220.80887780186092,21,Southern Classics
+red beans rice,158.42237784868882,21,Southern Classics
+chicken,156.9923180310733,21,Southern Classics
+fried,116.60717529401096,21,Southern Classics
+beans rice,114.87920114060388,21,Southern Classics
+fan of,111.31713276552182,21,Southern Classics
+red beans,107.79518157539415,21,Southern Classics
+beans,105.36581581444744,21,Southern Classics
+not fan of,93.07399376233472,21,Southern Classics
+rice,88.5002362330894,21,Southern Classics
+lots of,187.8606296121173,22,Outdoor Seating
+of,165.10313884884792,22,Outdoor Seating
+lot of,156.7138083558103,22,Outdoor Seating
+lots,104.63255513054328,22,Outdoor Seating
+outdoor seating,91.6496629517662,22,Outdoor Seating
+bit of,89.955261486039,22,Outdoor Seating
+lot,84.48265642621861,22,Outdoor Seating
+great,77.80838041562156,22,Outdoor Seating
+plenty of,77.77585053573628,22,Outdoor Seating
+seating,73.13939368577617,22,Outdoor Seating
+us,322.6249271387212,23,Service Issues
+of,295.1031290949197,23,Service Issues
+not,206.43904977063352,23,Service Issues
+table,188.51752506484883,23,Service Issues
+minutes,182.2571131920963,23,Service Issues
+no,167.8374407709877,23,Service Issues
+asked,163.82384355054933,23,Service Issues
+food,162.50012457666506,23,Service Issues
+came,154.61391389487497,23,Service Issues
+order,153.79659367687665,23,Service Issues
+highly recommend,235.5464133911524,24,Extraordinary Recommendation
+service great,125.1481569038232,24,Extraordinary Recommendation
+highly,121.9185119633573,24,Extraordinary Recommendation
+recommend,103.85327757365556,24,Extraordinary Recommendation
+food amazing,101.9506615124433,24,Extraordinary Recommendation
+great,97.63531569692752,24,Extraordinary Recommendation
+amazing,93.93703438109256,24,Extraordinary Recommendation
+food,89.44698478010933,24,Extraordinary Recommendation
+food delicious,84.99338778811142,24,Extraordinary Recommendation
+last night,76.5382712752315,24,Extraordinary Recommendation
+oysters,266.46049970072374,25,Oyster Specialties
+chargrilled oysters,116.4411581667267,25,Oyster Specialties
+charbroiled oysters,92.07329843984456,25,Oyster Specialties
+gumbo,86.87866228196317,25,Oyster Specialties
+raw oysters,84.15850672847766,25,Oyster Specialties
+seafood,80.14900026978701,25,Oyster Specialties
+oyster,75.94068863916893,25,Oyster Specialties
+seafood gumbo,72.77903653887194,25,Oyster Specialties
+of places,69.19049785338098,25,Oyster Specialties
+grilled oysters,68.41043331078956,25,Oyster Specialties
+french toast,196.26892081980307,26,Breakfast Choices
+breakfast,137.0332526553165,26,Breakfast Choices
+toast,129.91410174678012,26,Breakfast Choices
+eggs,129.41715147745666,26,Breakfast Choices
+french,121.29962735512156,26,Breakfast Choices
+bloody mary,105.50156732137448,26,Breakfast Choices
+eggs benedict,93.2599216508459,26,Breakfast Choices
+brunch,86.08429057914945,26,Breakfast Choices
+coffee,70.81886730096531,26,Breakfast Choices
+of,69.35215641905286,26,Breakfast Choices
+one of favorite,131.49773971022276,27,Favorite Spot
+of favorite,99.95001080468018,27,Favorite Spot
+live music,97.36161969668252,27,Favorite Spot
+friendly staff,75.78384977928242,27,Favorite Spot
+definitely go,73.75974820833011,27,Favorite Spot
+definitely go back,66.1262712082954,27,Favorite Spot
+staff friendly,58.563335462180966,27,Favorite Spot
+would definitely go back,57.94639259288527,27,Favorite Spot
+friendly,57.76492143009203,27,Favorite Spot
+would definitely go,53.85420464805047,27,Favorite Spot
+one of best,257.40071969905733,28,Top Picks
+one of,237.71340696266336,28,Top Picks
+of best,228.68057159098203,28,Top Picks
+best,98.15707060025017,28,Top Picks
+best ever,91.73233363693232,28,Top Picks
+one,91.11691389974465,28,Top Picks
+food very good,83.70797448103065,28,Top Picks
+food very,79.70482715614803,28,Top Picks
+of,70.69691407214376,28,Top Picks
+ever,68.97459409003174,28,Top Picks
+much better,151.73979624804656,29,Tourist Avoidance
+tourist trap,151.32097843809902,29,Tourist Avoidance
+across street,117.40516844381598,29,Tourist Avoidance
+better,107.97630833095864,29,Tourist Avoidance
+tourist,101.33276581232272,29,Tourist Avoidance
+line,89.36856467870669,29,Tourist Avoidance
+long line,82.31641713521635,29,Tourist Avoidance
+much,79.75920543278897,29,Tourist Avoidance
+food mediocre,78.05239378930948,29,Tourist Avoidance
+cafe du monde,71.87359177752955,29,Tourist Avoidance
