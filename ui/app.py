@@ -114,7 +114,7 @@ with st.form(key='user_input_form'):
             'Get Results',
             on_click=lambda: st.session_state.update({"get_result": True})
         )
-        st.text("Due to storage limitations, application is currently")
+        st.text("Due to storage limitations, our application is currently")
         st.text("limited to restaurants in New Orleans.")
         st.text("For a demo, try 'Luke' or 'Mother's Restaurant'.")
 
@@ -316,6 +316,7 @@ if st.session_state["get_result"]:
     )
     if st.session_state["get_topics"]:
         st.text(" ")  # add space
+        st.text(""" For more in depth insights, we can use machine learning to extract just 30 topics from all 500,000 reviews in our dataset.\nBelow we show the 15 most prevalent topics across all reviews.""")
         st.text(" ")  # add space
         st.subheader("List of Topics")
         plt.figure(figsize=(10, 4)) # You can adjust these numbers as per your need
@@ -323,7 +324,7 @@ if st.session_state["get_result"]:
             y="topic_label",
             x="score",
             data=topic_weights,
-            palette="Greens_d"
+            palette="Greens_r_d"
         )
         ax.tick_params(axis='y', labelsize=10)  # Adjust the size as per your need
         ax.tick_params(axis='x', labelsize=10)  # Adjust the size as per your need
@@ -334,9 +335,7 @@ if st.session_state["get_result"]:
         st.text(" ")  # add space
         st.text(" ")  # add space
 
-    st.text(" ")
-    st.text(""" For more in depth insights, we can use machine learning to extract just 30 topics from all 500,000 reviews in our dataset. This way, our insights are
-more generallly applicable""")
+
 
     with st.expander("Show Topic Modelling (LDA) explanation"):
         st.text(" ")  # add space
@@ -368,6 +367,8 @@ more generallly applicable""")
     ##################################################################################################################
     ##################################################################################################################
     ##################################################################################################################
+    st.text(" ")  # add space
+    st.text(" ")  # add space
     st.button(
         'Run Regression on Topics',
         on_click=lambda: st.session_state.update({"run_regression": True})
@@ -409,6 +410,8 @@ more generallly applicable""")
     ########## Get Suggestion ##########
     # get_suggestions = st.button('Get Suggestions')
 
+    st.text(" ")  # add space
+    st.text(" ")  # add space
     st.button(
         'Get Suggestions',
         on_click=lambda: st.session_state.update({"get_suggestions": True})

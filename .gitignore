@@ -18,3 +18,6 @@ notebooks/csv
 *.cache/
 */.pytest_cache/*
 *.ipynb_checkpoints
+
+data/filtered_reviews.csv
+data/yelp_business.csv
